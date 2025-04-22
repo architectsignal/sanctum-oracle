@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Cosmic Alignment</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+    body { background-color: black; color: skyblue; font-family: 'Cinzel', serif; padding: 2rem; }
+    h2 { text-align: center; }
+    .cards-container, .reveal-cards { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; }
+    .card { width: 120px; height: 180px; background: #111; border: 2px solid skyblue; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; position: relative; }
+    .card.selected { border-color: gold; }
+    .card svg { width: 60px; height: 60px; }
+    .card-name { margin-top: 0.5rem; text-align: center; font-size: 0.9rem; }
+    #output { text-align: center; margin-top: 1rem; font-size: 1.1rem; white-space: pre-wrap; }
+  
+    .reveal-cards .card-art {
+      width: 120px; height: 180px;
+      background-image: url('../assets/img/nephilim-cards-triptych.png');
+      background-size: 360px 180px;
+      background-repeat: no-repeat;
+      margin: 0 0.5rem;
+    }
+</style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><link href="https://yourdomain.com/cosmic-alignment.html" rel="canonical"/><meta content="Cosmic Alignment" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<h2>🌠 Cosmic Alignment Puzzle</h2>
+<p style="text-align: center;">Align the celestial keys and unveil what the stars foretell.</p>
+<div class="cards-container" id="cardsContainer">
+<div class="card" data-key="moon" onclick="selectCard(event)">
+<svg viewbox="0 0 100 100"><circle cx="50" cy="50" fill="skyblue" r="30"></circle><circle cx="60" cy="50" fill="black" r="30"></circle></svg>
+<div class="card-name">The Whisper of the Moon</div>
+</div>
+<div class="card" data-key="sun" onclick="selectCard(event)">
+<svg viewbox="0 0 100 100"><circle cx="50" cy="50" fill="skyblue" r="20"></circle><g stroke="skyblue" stroke-width="4"><line x1="50" x2="50" y1="5" y2="0"></line><line x1="50" x2="50" y1="95" y2="100"></line><line x1="5" x2="0" y1="50" y2="50"></line><line x1="95" x2="100" y1="50" y2="50"></line><line x1="20" x2="15" y1="20" y2="15"></line><line x1="80" x2="85" y1="20" y2="15"></line><line x1="20" x2="15" y1="80" y2="85"></line><line x1="80" x2="85" y1="80" y2="85"></line></g></svg>
+<div class="card-name">The Flame of the Sun</div>
+</div>
+<div class="card" data-key="titan" onclick="selectCard(event)">
+<svg viewbox="0 0 100 100"><circle cx="50" cy="50" fill="none" r="30" stroke="skyblue" stroke-width="4"></circle><ellipse cx="50" cy="50" fill="skyblue" opacity="0.6" rx="50" ry="12" transform="rotate(45 50 50)"></ellipse></svg>
+<div class="card-name">The Mark of the Titan</div>
+</div>
+</div>
+<p id="output"></p>
+<div class="reveal-cards" id="revealCards" style="display:none;"></div>
+<script>
+    const sequence = [];
+    function selectCard(evt) {
+      const card = evt.currentTarget;
+      const key = card.getAttribute('data-key');
+      if (sequence.length < 3 && !sequence.includes(key)) {
+        sequence.push(key);
+        card.classList.add('selected');
+      }
+      if (sequence.length === 3) validateSequence();
+    }
+    function validateSequence() {
+      const correct = ['titan','moon','sun'];
+      const output = document.getElementById('output');
+      if (sequence.join() === correct.join()) {
+        output.innerText = "“Heed the call of the Titan, the murmur of the Moon, and the fire of the Sun.\nIn their union you stand reborn, bearing the script of eternity and the power to reshape fate.”";
+        const revealDiv = document.getElementById('revealCards');
+        revealDiv.style.display = 'flex';
+        const positions = ['0px center', '-120px center', '-240px center'];
+        revealDiv.innerHTML = '';
+        positions.forEach(pos => {
+          const cardArt = document.createElement('div');
+          cardArt.className = 'card-art';
+          cardArt.style.backgroundPosition = pos;
+          revealDiv.appendChild(cardArt);
+        });
+        localStorage.setItem('cosmicPathComplete', true);('cosmicPathComplete', true);
+      } else {
+        output.innerText = '⚠️ Misaligned. The celestial order eludes you.';
+      }
+    }
+  </script>
+</main></body>
+</html>

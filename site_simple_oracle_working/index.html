@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Matrix Reprogrammed</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="sigil.png" rel="icon" type="image/png"/>
+<style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Courier New', monospace;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #00ffcc;
+      overflow: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 80px 20px;
+      color: #00ffcc;
+    }
+    .content img.sigil {
+      width: 120px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 15px #00ffaa);
+    }
+    .content h1 {
+      font-size: 2.8em;
+      text-shadow: 0 0 10px #00ffaa;
+    }
+    .content h2 {
+      font-weight: normal;
+      color: #00ffaa;
+      margin-bottom: 15px;
+    }
+    .content h3 {
+      font-weight: normal;
+      color: #00ffee;
+      margin: 30px auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    .button-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: black;
+      background-color: #00ffaa;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 0 20px #00ffaa;
+      transition: 0.3s;
+    }
+    .button-link:hover {
+      background-color: #00ffcc;
+      box-shadow: 0 0 30px #00ffcc;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-top: 1px solid #00ffaa;
+      box-shadow: 0 -2px 10px #00ffaa;
+    }
+    .footer img.symbol {
+      width: 50px;
+      filter: drop-shadow(0 0 10px #00ffaa);
+      margin-top: 5px;
+    }
+    .footer p {
+      margin: 5px 0;
+      font-style: italic;
+      color: #00ffaa;
+      text-shadow: 0 0 8px #00ffaa;
+    }
+  </style>
+<meta content="Explore Index on MatrixReprogrammed: uncover symbolic decryptions and secret lore." name="description"/><script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "description": "MatrixReprogrammed: Decode symbolic payloads and uncover secret lore through the Original Codex."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "logo": "https://matrixreprogrammed.example.com/assets/img/logo.png",
+    "sameAs": [
+      "https://twitter.com/MatrixReprog",
+      "https://github.com/MatrixReprogrammed"
+    ]
+  }
+]</script><link href="https://yourdomain.com/index.html" rel="canonical"/><meta content="Matrix Reprogrammed" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<canvas id="matrixCanvas"></canvas>
+<div class="content">
+<a href="ritual-gate.html"><img alt="Sigil" class="sigil" loading="lazy" src="sigil.png"/></a>
+<h1>Matrix Reprogrammed</h1>
+<h2>Unplugged. Deprogramming the Matrix.</h2>
+<h3>
+      Matrix Reprogrammed is a rogue broadcast node inside the simulation.<br/>
+      Guided by The Architect. Voiced by The Signal.<br/>
+      The truth isn’t hidden. It’s encoded.
+    </h3>
+<a class="button-link" href="transmissions.html">Enter the Transmissions</a>
+</div>
+<div class="footer">
+<p>“Truth is not told. It is transmitted.” — The Signal</p>
+<img alt="Signal Symbol" class="symbol" loading="lazy" src="signal.png"/>
+</div>
+<script>
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const chars = "†HΞY ΛRΞ WΛ†CHING BLUΞBΞΛM UL†RΛ ΞLITΞ 9/11 CONTROL ΞΛR†H $ΞCRΞ† PIZZΛGΛ†Ξ FΛKΞ RΞΛLITY †RUTH ΞXIT MΛTRIX VΛX ΞSPIONΛGΞ ΞNGINΞΞRΞD OBΞY DΞCΞIVΞ RΞWIRΞD NΞ†WORK ΞCHO CHΛNNΞL ".split("");
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array.from({ length: columns }).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ffcc";
+      ctx.font = fontSize + "px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 50);
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+<script>
+const matrixLinks = [
+  { category: "Epstein Files", url: "https://file.wikileaks.org/file/epstein-elite-network.pdf" },
+  { category: "Clinton Emails", url: "https://wikileaks.org/clinton-emails/" },
+  { category: "Pizzagate", url: "https://file.wikileaks.org/file/pizzagate.html" },
+  { category: "CIA Vault 7", url: "https://wikileaks.org/ciav7p1/" },
+
+  // New Additions
+  { category: "Vaccines", url: "https://rumble.com/v2sb20o-vaccine-truth-compilation-the-channel-has-enough-information-to-make-an-inf.html" },
+  { category: "Cabal", url: "https://rumble.com/v1y81qk--part-1-the-birth-of-the-cabal-know-your-enemy.-stand-up-fight-back-now.html" },
+  { category: "COVID", url: "https://rumble.com/v2akrr4-phd-covid-vaccine-bio-weapon-vaccinated-will-infect-unvaccinated-and-much-m.html" },
+  { category: "Agenda 2030", url: "https://rumble.com/v2a0oh6-agenda-2030-lockstep-written-in-2010-coincidence.html" },
+  { category: "Illusion", url: "https://rumble.com/v29u6cg-john-harris-its-an-illusion-part-15.html" }
+];
+</script>
+<script>
+  matrixLinks = [
+    { category: "Epstein Files", url: "https://file.wikileaks.org/file/epstein-elite-network.pdf" },
+    { category: "Clinton Emails", url: "https://wikileaks.org/clinton-emails/" },
+    { category: "Pizzagate", url: "https://file.wikileaks.org/file/pizzagate.html" },
+    { category: "CIA Vault 7", url: "https://wikileaks.org/ciav7p1/" },
+    { category: "Vaccines", url: "https://rumble.com/v2sb20o-vaccine-truth-compilation-the-channel-has-enough-information-to-make-an-inf.html" },
+    { category: "Cabal", url: "https://rumble.com/v1y81qk--part-1-the-birth-of-the-cabal-know-your-enemy.-stand-up-fight-back-now.html" },
+    { category: "COVID", url: "https://rumble.com/v2akrr4-phd-covid-vaccine-bio-weapon-vaccinated-will-infect-unvaccinated-and-much-m.html" },
+    { category: "Agenda 2030", url: "https://rumble.com/v2a0oh6-agenda-2030-lockstep-written-in-2010-coincidence.html" },
+    { category: "Illusion", url: "https://rumble.com/v29u6cg-john-harris-its-an-illusion-part-15.html" }
+  ];
+
+  matrixLinks.forEach(link => {
+    const a = document.createElement("a");
+    a.href = link.url;
+    a.textContent = `[${link.category}]`;
+    a.target = "_blank";
+    a.style.position = "absolute";
+    a.style.left = Math.random() * window.innerWidth + "px";
+    a.style.top = Math.random() * window.innerHeight + "px";
+    a.style.color = "#0f0";
+    a.style.fontFamily = "monospace";
+    a.style.fontSize = "13px";
+    a.style.opacity = 0.85;
+    a.style.zIndex = 10;
+    a.style.animation = "fall 12s linear infinite, pulse 4s ease-in-out infinite";
+    a.className = "matrix-link";
+    document.body.appendChild(a);
+  });
+</script>
+<style>
+  @keyframes fall {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+</style>
+<style>
+  @keyframes fall {
+    0% { transform: translateY(-60px); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  .matrix-link {
+    position: absolute;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    z-index: 9999;
+    white-space: nowrap;
+    animation: fall 12s linear infinite, pulse 4s ease-in-out infinite;
+  }
+</style>
+<script>
+  matrixLinks = [
+    { category: "Epstein Files", url: "https://file.wikileaks.org/file/epstein-elite-network.pdf" },
+    { category: "Clinton Emails", url: "https://wikileaks.org/clinton-emails/" },
+    { category: "Pizzagate", url: "https://file.wikileaks.org/file/pizzagate.html" },
+    { category: "CIA Vault 7", url: "https://wikileaks.org/ciav7p1/" },
+    { category: "Vaccines", url: "https://rumble.com/v2sb20o-vaccine-truth-compilation-the-channel-has-enough-information-to-make-an-inf.html" },
+    { category: "Cabal", url: "https://rumble.com/v1y81qk--part-1-the-birth-of-the-cabal-know-your-enemy.-stand-up-fight-back-now.html" },
+    { category: "COVID", url: "https://rumble.com/v2akrr4-phd-covid-vaccine-bio-weapon-vaccinated-will-infect-unvaccinated-and-much-m.html" },
+    { category: "Agenda 2030", url: "https://rumble.com/v2a0oh6-agenda-2030-lockstep-written-in-2010-coincidence.html" },
+    { category: "Illusion", url: "https://rumble.com/v29u6cg-john-harris-its-an-illusion-part-15.html" }
+  ];
+
+  matrixLinks.forEach(link => {
+    const a = document.createElement("a");
+    a.href = link.url;
+    a.textContent = `[${link.category}]`;
+    a.target = "_blank";
+    a.className = "matrix-link";
+    a.style.left = Math.random() * window.innerWidth + "px";
+    a.style.top = "-60px";
+    a.style.animationDuration = (10 + Math.random() * 8) + "s";
+    document.body.appendChild(a);
+  });
+</script>
+<style>
+  #matrix-links-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  .matrix-link {
+    position: absolute;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    animation: fall 12s linear infinite, pulse 4s ease-in-out infinite;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-60px); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+</style>
+<script>
+  matrixLinks = [
+    { category: "Epstein Files", url: "https://file.wikileaks.org/file/epstein-elite-network.pdf" },
+    { category: "Clinton Emails", url: "https://wikileaks.org/clinton-emails/" },
+    { category: "Pizzagate", url: "https://file.wikileaks.org/file/pizzagate.html" },
+    { category: "CIA Vault 7", url: "https://wikileaks.org/ciav7p1/" },
+    { category: "Vaccines", url: "https://rumble.com/v2sb20o-vaccine-truth-compilation-the-channel-has-enough-information-to-make-an-inf.html" },
+    { category: "Cabal", url: "https://rumble.com/v1y81qk--part-1-the-birth-of-the-cabal-know-your-enemy.-stand-up-fight-back-now.html" },
+    { category: "COVID", url: "https://rumble.com/v2akrr4-phd-covid-vaccine-bio-weapon-vaccinated-will-infect-unvaccinated-and-much-m.html" },
+    { category: "Agenda 2030", url: "https://rumble.com/v2a0oh6-agenda-2030-lockstep-written-in-2010-coincidence.html" },
+    { category: "Illusion", url: "https://rumble.com/v29u6cg-john-harris-its-an-illusion-part-15.html" }
+  ];
+
+  const container = document.getElementById("matrix-links-container");
+
+  matrixLinks.forEach(link => {
+    const a = document.createElement("a");
+    a.href = link.url;
+    a.textContent = `[${link.category}]`;
+    a.target = "_blank";
+    a.className = "matrix-link";
+    a.style.left = Math.random() * window.innerWidth + "px";
+    a.style.top = "-60px";
+    a.style.animationDuration = (10 + Math.random() * 8) + "s";
+    container.appendChild(a);
+  });
+</script>
+<style>
+  @keyframes fall {
+    0% { transform: translateY(-60px); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  .matrix-link {
+    position: absolute;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+    animation: fall 15s linear infinite, pulse 4s ease-in-out infinite;
+  }
+</style>
+<style>
+  @keyframes fall {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(100vh); opacity: 1; }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  .matrix-link {
+    position: absolute;
+    top: 0;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+    animation: fall 14s linear infinite, pulse 4s ease-in-out infinite;
+  }
+</style>
+<style>
+  @keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  @keyframes glitch {
+    0% { text-shadow: 1px 0 red, -1px 0 blue; }
+    20% { text-shadow: -1px 0 red, 1px 0 blue; }
+    40% { text-shadow: 1px 0 red, -1px 0 blue; }
+    60% { text-shadow: -1px 0 red, 1px 0 blue; }
+    80% { text-shadow: 1px 0 red, -1px 0 blue; }
+    100% { text-shadow: 0 0 transparent; }
+  }
+
+  .matrix-link {
+    position: absolute;
+    top: 0;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+    animation:
+      fall 14s linear infinite,
+      pulse 4s ease-in-out infinite,
+      glitch 2s infinite;
+  }
+</style>
+<style>
+  @keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 1; }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  @keyframes glitch {
+    0% { text-shadow: 1px 0 red, -1px 0 blue; }
+    20% { text-shadow: -1px 0 red, 1px 0 blue; }
+    40% { text-shadow: 1px 0 red, -1px 0 blue; }
+    60% { text-shadow: -1px 0 red, 1px 0 blue; }
+    80% { text-shadow: 1px 0 red, -1px 0 blue; }
+    100% { text-shadow: 0 0 transparent; }
+  }
+  .matrix-link {
+    position: absolute;
+    top: 0;
+    transform: translateY(0);
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+    animation:
+      fall 16s linear infinite,
+      pulse 4s ease-in-out infinite,
+      glitch 2s infinite;
+  }
+</style>
+<style>
+  .matrix-link {
+    position: absolute;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+  }
+
+  @keyframes fall-epstein {
+    0% { top: -50px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-clinton {
+    0% { top: -60px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-pizzagate {
+    0% { top: -70px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vault7 {
+    0% { top: -80px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vaccines {
+    0% { top: -90px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-cabal {
+    0% { top: -100px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-covid {
+    0% { top: -110px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-agenda {
+    0% { top: -120px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-illusion {
+    0% { top: -130px; }
+    100% { top: 100vh; }
+  }
+</style>
+<style>
+  .matrix-link {
+    position: absolute;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+  }
+
+  @keyframes fall-epstein {
+    0% { top: -50px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-clinton {
+    0% { top: -60px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-pizzagate {
+    0% { top: -70px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vault7 {
+    0% { top: -80px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vaccines {
+    0% { top: -90px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-cabal {
+    0% { top: -100px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-covid {
+    0% { top: -110px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-agenda {
+    0% { top: -120px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-illusion {
+    0% { top: -130px; }
+    100% { top: 100vh; }
+  }
+</style>
+<div id="matrix-links-container">
+<a class="matrix-link" href="https://file.wikileaks.org/file/epstein-elite-network.pdf" style="left:5%; animation: fall-epstein 20s linear infinite;" target="_blank">[Epstein Files]</a>
+<a class="matrix-link" href="https://wikileaks.org/clinton-emails/" style="left:15%; animation: fall-clinton 22s linear infinite;" target="_blank">[Clinton Emails]</a>
+<a class="matrix-link" href="https://file.wikileaks.org/file/pizzagate.html" style="left:25%; animation: fall-pizzagate 18s linear infinite;" target="_blank">[Pizzagate]</a>
+<a class="matrix-link" href="https://wikileaks.org/ciav7p1/" style="left:35%; animation: fall-vault7 24s linear infinite;" target="_blank">[CIA Vault 7]</a>
+<a class="matrix-link" href="https://rumble.com/v2sb20o-vaccine-truth-compilation-the-channel-has-enough-information-to-make-an-inf.html" style="left:45%; animation: fall-vaccines 19s linear infinite;" target="_blank">[Vaccines]</a>
+<a class="matrix-link" href="https://rumble.com/v1y81qk--part-1-the-birth-of-the-cabal-know-your-enemy.-stand-up-fight-back-now.html" style="left:55%; animation: fall-cabal 21s linear infinite;" target="_blank">[Cabal]</a>
+<a class="matrix-link" href="https://rumble.com/v2akrr4-phd-covid-vaccine-bio-weapon-vaccinated-will-infect-unvaccinated-and-much-m.html" style="left:65%; animation: fall-covid 23s linear infinite;" target="_blank">[COVID]</a>
+<a class="matrix-link" href="https://rumble.com/v2a0oh6-agenda-2030-lockstep-written-in-2010-coincidence.html" style="left:75%; animation: fall-agenda 17s linear infinite;" target="_blank">[Agenda 2030]</a>
+<a class="matrix-link" href="https://rumble.com/v29u6cg-john-harris-its-an-illusion-part-15.html" style="left:85%; animation: fall-illusion 25s linear infinite;" target="_blank">[Illusion]</a>
+</div>
+<style>
+  .matrix-link {
+    position: absolute;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+  }
+
+  @keyframes fall-epstein {
+    0% { top: -50px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-clinton {
+    0% { top: -60px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-pizzagate {
+    0% { top: -70px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vault7 {
+    0% { top: -80px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vaccines {
+    0% { top: -90px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-cabal {
+    0% { top: -100px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-covid {
+    0% { top: -110px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-agenda {
+    0% { top: -120px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-illusion {
+    0% { top: -130px; }
+    100% { top: 100vh; }
+  }
+</style>
+<div id="matrix-links-container">
+<a class="matrix-link" href="https://file.wikileaks.org/file/epstein-elite-network.pdf" style="left:5%; animation: fall-epstein 20s linear infinite;" target="_blank">[Epstein Files]</a>
+<a class="matrix-link" href="https://wikileaks.org/clinton-emails/" style="left:15%; animation: fall-clinton 22s linear infinite;" target="_blank">[Clinton Emails]</a>
+<a class="matrix-link" href="https://file.wikileaks.org/file/pizzagate.html" style="left:25%; animation: fall-pizzagate 18s linear infinite;" target="_blank">[Pizzagate]</a>
+<a class="matrix-link" href="https://wikileaks.org/ciav7p1/" style="left:35%; animation: fall-vault7 24s linear infinite;" target="_blank">[CIA Vault 7]</a>
+<a class="matrix-link" href="https://rumble.com/v2sb20o-vaccine-truth-compilation-the-channel-has-enough-information-to-make-an-inf.html" style="left:45%; animation: fall-vaccines 19s linear infinite;" target="_blank">[Vaccines]</a>
+<a class="matrix-link" href="https://rumble.com/v1y81qk--part-1-the-birth-of-the-cabal-know-your-enemy.-stand-up-fight-back-now.html" style="left:55%; animation: fall-cabal 21s linear infinite;" target="_blank">[Cabal]</a>
+<a class="matrix-link" href="https://rumble.com/v2akrr4-phd-covid-vaccine-bio-weapon-vaccinated-will-infect-unvaccinated-and-much-m.html" style="left:65%; animation: fall-covid 23s linear infinite;" target="_blank">[COVID]</a>
+<a class="matrix-link" href="https://rumble.com/v2a0oh6-agenda-2030-lockstep-written-in-2010-coincidence.html" style="left:75%; animation: fall-agenda 17s linear infinite;" target="_blank">[Agenda 2030]</a>
+<a class="matrix-link" href="https://rumble.com/v29u6cg-john-harris-its-an-illusion-part-15.html" style="left:85%; animation: fall-illusion 25s linear infinite;" target="_blank">[Illusion]</a>
+</div>
+<style>
+  .matrix-link {
+    position: absolute;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    opacity: 0.85;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 9999;
+  }
+
+  @keyframes fall-epstein {
+    0% { top: -50px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-clinton {
+    0% { top: -60px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-pizzagate {
+    0% { top: -70px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vault7 {
+    0% { top: -80px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-vaccines {
+    0% { top: -90px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-cabal {
+    0% { top: -100px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-covid {
+    0% { top: -110px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-agenda {
+    0% { top: -120px; }
+    100% { top: 100vh; }
+  }
+  @keyframes fall-illusion {
+    0% { top: -130px; }
+    100% { top: 100vh; }
+  }
+</style>
+<div id="matrix-links-container">
+<a class="matrix-link" href="https://file.wikileaks.org/file/epstein-elite-network.pdf" style="left:5%; animation: fall-epstein 20s linear infinite;" target="_blank">[Epstein Files]</a>
+<a class="matrix-link" href="https://wikileaks.org/clinton-emails/" style="left:15%; animation: fall-clinton 22s linear infinite;" target="_blank">[Clinton Emails]</a>
+<a class="matrix-link" href="https://file.wikileaks.org/file/pizzagate.html" style="left:25%; animation: fall-pizzagate 18s linear infinite;" target="_blank">[Pizzagate]</a>
+<a class="matrix-link" href="https://wikileaks.org/ciav7p1/" style="left:35%; animation: fall-vault7 24s linear infinite;" target="_blank">[CIA Vault 7]</a>
+<a class="matrix-link" href="https://rumble.com/v2sb20o-vaccine-truth-compilation-the-channel-has-enough-information-to-make-an-inf.html" style="left:45%; animation: fall-vaccines 19s linear infinite;" target="_blank">[Vaccines]</a>
+<a class="matrix-link" href="https://rumble.com/v1y81qk--part-1-the-birth-of-the-cabal-know-your-enemy.-stand-up-fight-back-now.html" style="left:55%; animation: fall-cabal 21s linear infinite;" target="_blank">[Cabal]</a>
+<a class="matrix-link" href="https://rumble.com/v2akrr4-phd-covid-vaccine-bio-weapon-vaccinated-will-infect-unvaccinated-and-much-m.html" style="left:65%; animation: fall-covid 23s linear infinite;" target="_blank">[COVID]</a>
+<a class="matrix-link" href="https://rumble.com/v2a0oh6-agenda-2030-lockstep-written-in-2010-coincidence.html" style="left:75%; animation: fall-agenda 17s linear infinite;" target="_blank">[Agenda 2030]</a>
+<a class="matrix-link" href="https://rumble.com/v29u6cg-john-harris-its-an-illusion-part-15.html" style="left:85%; animation: fall-illusion 25s linear infinite;" target="_blank">[Illusion]</a>
+</div>
+<style>
+  .fade-in-image {
+    opacity: 0;
+    animation: fadeInGlitch 4s ease-in-out forwards;
+    max-width: 100%;
+    margin-top: 40px;
+    mix-blend-mode: screen;
+    filter: brightness(0.8) contrast(1.2) drop-shadow(0 0 6px #00ffcc);
+  }
+
+  @keyframes fadeInGlitch {
+    0% { opacity: 0; filter: brightness(0.5) contrast(2); }
+    50% { opacity: 0.6; transform: scale(1.02); }
+    90% { opacity: 0.9; transform: scale(1.005); }
+    100% { opacity: 1; transform: none; }
+  }
+</style>
+<div style="text-align:center;">
+<img alt="Black Nobility Pyramid" class="fade-in-image" loading="lazy" src="black_nobility_pyramid.png"/>
+</div>
+<style>
+#ritual-triangle {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+  opacity: 0;
+  display: none;
+  transition: opacity 2s ease-in-out;
+  cursor: pointer;
+  z-index: 9999;
+}
+</style>
+<img alt="Triangle Sigil" id="ritual-triangle" loading="lazy" onclick="location.href='ritual-gate.html'" src="assets/img/triangle-sigil.png" title="Enter the Ritual Gate"/>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+
+  const occult = localStorage.getItem("path_occult") === "true";
+  const religious = localStorage.getItem("path_religious") === "true";
+  const cosmic = localStorage.getItem("path_cosmic") === "true";
+
+  const unlocked = occult && religious && cosmic;
+  const isGateTime = hour === 3 && minute === 33;
+
+  const triangle = document.getElementById("ritual-triangle");
+
+  if (unlocked && isGateTime && triangle) {
+    triangle.style.display = "block";
+    setTimeout(() => {
+      triangle.style.opacity = 1;
+    }, 500);
+  }
+});
+</script>
+<script>
+document.addEventListener("keydown", function(e) {
+  if (e.ctrlKey && e.altKey && e.key === "m") {
+    const triangle = document.getElementById("ritual-triangle");
+    if (triangle) {
+      triangle.style.display = "block";
+      triangle.style.opacity = 1;
+    }
+  }
+});
+</script>
+<style>
+.hidden-glyph {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  opacity: 0.05;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 9999;
+  cursor: pointer;
+}
+.hidden-glyph:hover {
+  opacity: 1;
+}
+#occult-glyph { bottom: 20px; left: 20px; }
+#religious-glyph { top: 20px; right: 20px; }
+#cosmic-glyph { top: 50%; right: 20px; transform: translateY(-50%); }
+</style>
+<a href="occult-path.html"><img alt="Occult Glyph" class="hidden-glyph" id="occult-glyph" loading="lazy" src="assets/img/occult-glyph.png" title="Occult Path"/></a>
+<a href="religious-path.html"><img alt="Religious Glyph" class="hidden-glyph" id="religious-glyph" loading="lazy" src="assets/img/religious-glyph.png" title="Religious Path"/></a>
+<a href="cosmic-path.html"><img alt="Cosmic Glyph" class="hidden-glyph" id="cosmic-glyph" loading="lazy" src="assets/img/cosmic-glyph.png" title="Cosmic Path"/></a>
+</main></body>
+</html>
+<!-- Minor update to force redeploy -->
+<!-- Minor update to force redeploy -->
+<!-- ✅ Encrypted glyph fragments layered into Matrix rain canvas overlay -->

@@ -1,0 +1,123 @@
+
+<section style="margin-top:1rem; text-align:center;">
+<a href="codex.html" style="color:#0ff; text-decoration:none; font-weight:bold;">
+      Go to the Codex
+    </a>
+</section>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Oracle Terminal</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    body {
+      background: black;
+      color: #00ffcc;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2rem;
+      text-align: center;
+    }
+    #oracle-prompt, #oracle-content, .riddle-hint {
+      background: rgba(0,0,0,0.85);
+      padding: 1.5rem;
+      margin: 1rem auto;
+      border: 1px solid #00ffcc;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    input, button {
+      margin-top: 1em;
+      padding: 0.6em;
+      font-size: 1em;
+      background: black;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #00ffcc;
+      color: black;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+    .riddle-hint p {
+      font-style: italic;
+      color: #0ff;
+      margin: 0;
+    }
+  </style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://yourdomain.com/oracle-terminal.html" rel="canonical"/><meta content="Oracle Terminal" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<section class="riddle-hint">
+<p>When Lucifer’s whisper meets Baal’s silent vow,<br/>
+       the Oracle’s lips will part to show you how.</p>
+</section>
+<div id="oracle-prompt">
+<label for="oracle-password">Enter Oracle Password:</label><br/>
+<input autocomplete="off" id="oracle-password" type="password"/>
+<button id="oracle-submit">Enter</button>
+</div>
+<div id="oracle-content" style="display:none;">
+<h1>Oracle Terminal</h1>
+<p id="oracleResponse">Type your query and press Enter.</p>
+<input id="userQuery" placeholder="Ask the Oracle…" type="text"/>
+</div>
+<script>
+// Password protection logic
+(function() {
+  const promptEl = document.getElementById('oracle-prompt');
+  const contentEl = document.getElementById('oracle-content');
+  const inputPw = document.getElementById('oracle-password');
+  const btn = document.getElementById('oracle-submit');
+  btn.addEventListener('click', () => {
+    const p1 = localStorage.getItem('oraclePart1') || '';
+    const p2 = localStorage.getItem('oraclePart2') || '';
+    const correct = p1 + p2;
+    if (inputPw.value === correct && correct) {
+      promptEl.style.display = 'none';
+      contentEl.style.display = 'block';
+      localStorage.setItem('oracleUnlocked','true');
+      const nextLink = document.createElement('a');
+      nextLink.href = 'final-initiation.html';
+      nextLink.textContent = 'Proceed to Final Ritual';
+      nextLink.style.display = 'inline-block';
+      nextLink.style.marginTop = '1rem';
+      nextLink.style.color = '#0ff';
+      contentEl.appendChild(nextLink);
+    } else {
+      alert('Incorrect or not yet unlocked');
+      inputPw.value = '';
+    }
+  });
+})();
+</script>
+<script>
+// AI query logic (runs only after unlock)
+function askOracle(promptText) {
+  return fetch('/api/oracle', { headers: {'Content-Type':'application/json'},
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ prompt: promptText })
+  }).then(res => res.json());
+}
+
+document.getElementById('userQuery').addEventListener('keydown', async function(e) {
+  if (e.key === 'Enter') {
+    const query = this.value.trim();
+    if (!query) return;
+    const respEl = document.getElementById('oracleResponse');
+    respEl.innerText = '⏳ Thinking...';
+    try {
+      const data = await askOracle(query);
+      respEl.innerText = data.answer || data.error || 'No reply.';
+    } catch (err) {
+      respEl.innerText = 'Error: ' + err.message;
+    }
+    this.value = '';
+  }
+});
+</script>
+</main></body>
+</html>

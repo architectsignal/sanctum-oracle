@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Step 3 – Understanding</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    .hidden { display: none; }
+
+    body { background: black; color: #66ff66; font-family: 'Share Tech Mono', monospace; text-align: center; padding-top: 10vh; }
+    .container { display: inline-block; background: rgba(0,0,0,0.85); padding: 2em; border:2px solid #66ff66; box-shadow: 0 0 20px #66ff66; }
+    .locked, .error { font-size: 1em; }
+    .error { color: #ff4444; display: none; margin-top: 1em; }
+    input { margin: 1em auto; padding: 0.5em; font-size: 1em; width: 200px; background: black; color: #66ff66; border: 1px solid #66ff66; }
+    button { padding: 0.5em 1em; background: #66ff66; color: black; border: none; font-weight: bold; cursor: pointer; }
+    form { margin-top: 1em; }
+  </style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://yourdomain.com/step3.html" rel="canonical"/><meta content="Step 3 – Understanding" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<div class="container">
+<h1>Step 3 – Understanding</h1>
+<p><strong>Price: $5.00</strong></p>
+<div id="lockedSection">
+<p class="locked">This step is locked. Please purchase to unlock.</p>
+<a class="purchase-button" href="https://paypal.me/njmgroup?country.x=FR&amp;locale.x=fr_FR" target="_blank">Purchase Step 3 – Understanding ($5.00)</a>
+</div>
+<div id="unlockSection">
+<p>Enter the passcode provided after purchase:</p>
+<input id="passcodeInput" placeholder="Passcode" type="password"/>
+<button id="passcodeBtn">Unlock</button>
+<p class="error" id="passcodeError">Incorrect passcode.</p>
+</div>
+<div class="hidden" id="contentSection">
+<a download="" href="assets/pdfs/step3.pdf">Download Step 3 PDF</a>
+<p><a href="step4.html">Next: Step 4 – Preparation</a></p>
+</div>
+</div>
+<script>
+    document.getElementById('passcodeBtn').addEventListener('click', function() {
+      const entry = document.getElementById('passcodeInput').value.trim();
+      if (entry === 'UNDERSTANDING') {
+        document.getElementById('lockedSection').style.display = 'none';
+        document.getElementById('unlockSection').style.display = 'none';
+        document.getElementById('contentSection').classList.remove('hidden');
+      } else {
+        document.getElementById('passcodeError').style.display = 'block';
+      }
+    });
+  </script>
+</main></body>
+</html>

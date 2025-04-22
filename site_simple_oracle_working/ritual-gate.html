@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Ritual Gate</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black url('backgrounds/ritual-gate.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Share Tech Mono', monospace;
+      color: #e0e0e0;
+      text-align: center;
+    }
+    .gate-container {
+      padding-top: 10vh;
+    }
+    .sigil {
+      width: 120px;
+      animation: pulse 2s infinite ease-in-out;
+      filter: drop-shadow(0 0 15px crimson);
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    .intro-text {
+      margin: 2em auto;
+      max-width: 600px;
+      font-size: 1.1em;
+      text-shadow: 0 0 10px #222;
+    }
+    .path-button {
+      display: inline-block;
+      margin: 1em;
+      padding: 1em 2em;
+      border: 2px solid crimson;
+      border-radius: 5px;
+      background: transparent;
+      color: crimson;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .path-button:hover {
+      background: crimson;
+      color: black;
+      text-shadow: 0 0 5px white;
+      cursor: pointer;
+    }
+  </style>
+<meta content="Explore Ritual Gate on MatrixReprogrammed: uncover symbolic decryptions and secret lore." name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "description": "MatrixReprogrammed: Decode symbolic payloads and uncover secret lore through the Original Codex."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "logo": "https://matrixreprogrammed.example.com/assets/img/logo.png",
+    "sameAs": [
+      "https://twitter.com/MatrixReprog",
+      "https://github.com/MatrixReprogrammed"
+    ]
+  }
+]</script><link href="https://yourdomain.com/ritual-gate.html" rel="canonical"/><meta content="Ritual Gate" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<section class="riddle-hint" style="text-align:center; margin:2rem; color:#e0e0e0; font-style:italic;">
+<p>To breach the sealed vault’s ancient door,<br/>
+       First the cipher’s secret must you score;<br/>
+       Then to the branches, from roots ascend,<br/>
+       Only then may your quest transcend.</p>
+</section>
+<div class="gate-container">
+<img alt="Ritual Gate Sigil" class="sigil" loading="lazy" src="sigils/triangle-sigil.png"/>
+<div class="intro-text">
+<p><em>You have passed the five gates.</em></p>
+<p>The glyphs remember. The veil is thin.</p>
+<p>Choose your path—</p>
+</div>
+<div>
+<a class="path-button" href="occult-path.html">🜁 Occult Path</a>
+<a class="path-button" href="religious-path.html">🜂 Religious Path</a>
+<a class="path-button" href="cosmic-path.html">🜃 Cosmic Path</a>
+</div>
+</div>
+<section id="init-links">
+<h2>Final Initiation Links</h2>
+<ul>
+<li><a href="divine-cipher.html">Divine Cipher Initiation</a></li>
+<li><a href="ascension-tree.html">Ascension Tree Initiation</a></li>
+<li><a href="vault.html">Vault Initiation</a></li>
+</ul>
+</section>
+<script>
+window.addEventListener('load', function(){
+  if(localStorage.getItem('man_init_divine')==='true' && localStorage.getItem('man_init_tree')==='true' && localStorage.getItem('man_init_vault')==='true'){
+    var p = document.getElementById('proceed-final');
+    if(!p){
+      var a=document.createElement('a');
+      a.id='proceed-final';
+      a.href='moloch-chamber.html';
+      a.textContent='Proceed to Final Ritual';
+      a.style.display='block';
+      a.style.marginTop='1em';
+      document.body.appendChild(a);
+    }
+  }
+});
+</script>
+<footer style="text-align:center; margin-top:2rem;">
+<a href="index.html" style="color:#0ff; text-decoration:none; font-weight:bold;">
+      ← Back to Home
+    </a>
+</footer>
+</main></body>
+</html>

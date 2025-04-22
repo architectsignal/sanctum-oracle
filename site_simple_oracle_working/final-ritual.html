@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Final Ritual Gate</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+  body { background: black; color: #ff0066; font-family: 'Share Tech Mono', monospace; text-align: center; padding-top: 10vh; }
+  .gate-container { background: rgba(0,0,0,0.85); border: 2px solid #ff0066; display: inline-block; padding: 3em; box-shadow: 0 0 25px #ff0066; }
+  .gate-container input, .gate-container button { margin-top: 1em; }
+  .gate-container input { padding: 0.6em; font-size: 1em; width: 250px; background: black; color: #ff0066; border: 1px solid #ff0066; }
+  .gate-container button { padding: 0.6em 1.2em; background: #ff0066; color: black; border: none; font-weight: bold; cursor: pointer; }
+  .hidden { display: none; }
+  #credContainer a { color: #66ff66; text-decoration: none; font-size: 1.1em; display: block; margin-top: 1em; }
+</style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://yourdomain.com/final-ritual.html" rel="canonical"/><meta content="Final Ritual Gate" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<div id="final-prompt">
+<label>Enter Final Ritual Password:</label>
+<input id="final-password" type="password"/>
+<button id="final-submit">Enter</button>
+</div>
+<div id="final-content" style="display:none;">
+<div class="gate-container">
+<h1>🔺 Final Ritual Gate</h1>
+<p>To proceed, speak the final phrase of awakening.</p>
+<input id="finalPhrase" placeholder="Enter final phrase" type="text"/>
+<br/>
+<button id="unlockBtn">UNLOCK</button>
+<p class="hidden" id="failMessage">The glyph rejects you. This is not the key.</p>
+<div class="hidden" id="credContainer">
+<p><strong>Username:</strong> initiate<br/><strong>Password:</strong> awaken</p>
+<a href="members-login.html">Proceed to Members Login</a>
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('unlockBtn');
+      const input = document.getElementById('finalPhrase');
+      const fail = document.getElementById('failMessage');
+      const cred = document.getElementById('credContainer');
+      if (!btn || !input || !fail || !cred) return;
+      btn.addEventListener('click', () => {
+        const phrase = input.value.trim().toUpperCase();
+        if (phrase === 'THE SIGNAL' || phrase === 'OPENSESAME') {
+          input.style.display = 'none';
+          btn.style.display = 'none';
+          fail.classList.add('hidden');
+          cred.classList.remove('hidden');
+        } else {
+          fail.classList.remove('hidden');
+        }
+      });
+    });
+  </script>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const correct = localStorage.getItem('pwd_final') || '';
+      const promptEl = document.getElementById('final-prompt');
+      const contentEl = document.getElementById('final-content');
+      const input = document.getElementById('final-password');
+      document.getElementById('final-submit').addEventListener('click', () => {
+        if (input.value === correct && correct) {
+          promptEl.style.display = 'none';
+          contentEl.style.display = 'block';
+        } else {
+          alert('Incorrect final password');
+          input.value = '';
+        }
+      });
+    });
+  </script>
+</main></body>
+</html>

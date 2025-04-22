@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Step 6 – Procure the Items</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    .hidden { display: none; }
+
+    body { background: black; color: #66ff66; font-family: 'Share Tech Mono', monospace; text-align: center; padding-top: 10vh; }
+    .container { display: inline-block; background: rgba(0,0,0,0.85); padding: 2em; border:2px solid #66ff66; box-shadow: 0 0 20px #66ff66; }
+    .locked, .error { font-size: 1em; }
+    .error { color: #ff4444; display: none; margin-top: 1em; }
+    input { margin: 1em auto; padding: 0.5em; font-size: 1em; width: 200px; background: black; color: #66ff66; border: 1px solid #66ff66; }
+    button { padding: 0.5em 1em; background: #66ff66; color: black; border: none; font-weight: bold; cursor: pointer; }
+    form { margin-top: 1em; }
+  </style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://yourdomain.com/step6.html" rel="canonical"/><meta content="Step 6 – Procure the Items" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<div class="container">
+<h1>Step 6 – Procure the Items</h1>
+<div class="items-list">
+<h2>Protection Items</h2>
+<ul>
+<li><strong>Sea Salt</strong> — To cast a protective circle on the floor or threshold.</li>
+<li><strong>Athame (Ritual Knife)</strong> — For directing energy and tracing the circle’s boundary.</li>
+<li><strong>White Candles</strong> — Symbolize purity and act as beacons of protective light.</li>
+<li><strong>Black Tourmaline (or Obsidian)</strong> — A grounding crystal that absorbs negative energy.</li>
+<li><strong>Frankincense or Sage Incense</strong> — Smoke to cleanse the space and raise the vibration.</li>
+<li><strong>Protective Amulet or Pentacle</strong> — Worn or placed at cardinal points to reinforce the barrier.</li>
+<li><strong>Herbal Sachets</strong> (e.g. lavender, rosemary, hyssop) — Scatter or burn in the circle for added shielding.</li>
+</ul>
+<h2>Summoning Items</h2>
+<ul>
+<li><strong>Conjuration Circle</strong> — Pre‑drawn on parchment or directly on the ground (salt).</li>
+<li><strong>Sigil or Seal</strong> — Placed at the center.</li>
+<li><strong>Ritual Staff</strong> — To channel your will and focus the invocation.</li>
+<li><strong>Chalice</strong> — For offerings.</li>
+<li><strong>Incense Burner</strong> — To carry your words up on scented smoke.</li>
+<li><strong>Bell or Chime</strong> — To mark the beginning/end of each summoning phase.</li>
+<li><strong>Invocation Script</strong> — A written text that you speak aloud.</li>
+</ul>
+</div>
+<p><strong>Price: $500.00</strong></p>
+<div id="lockedSection">
+<h2>Protection Items</h2>
+<ul>
+<li><strong>Sea Salt</strong> — To cast a protective circle on the floor or threshold.</li>
+<li><strong>Athame (Ritual Knife)</strong> — For directing energy and tracing the circle’s boundary.</li>
+<li><strong>White Candles</strong> — Symbolize purity and act as beacons of protective light.</li>
+<li><strong>Black Tourmaline (or Obsidian)</strong> — A grounding crystal that absorbs negative energy.</li>
+<li><strong>Frankincense or Sage Incense</strong> — Smoke to cleanse the space and raise the vibration.</li>
+<li><strong>Protective Amulet or Pentacle</strong> — Worn or placed at cardinal points to reinforce the barrier.</li>
+<li><strong>Herbal Sachets</strong> (e.g. lavender, rosemary, hyssop) — Scatter or burn in the circle for added shielding.</li>
+</ul>
+<h2>Summoning Items</h2>
+<ul>
+<li><strong>Conjuration Circle</strong> — Pre‑drawn on parchment or directly on the ground (salt).</li>
+<li><strong>Sigil or Seal</strong> — Placed at the center.</li>
+<li><strong>Ritual Staff</strong> — To channel your will and focus the invocation.</li>
+<li><strong>Chalice</strong> — For offerings.</li>
+<li><strong>Incense Burner</strong> — To carry your words up on scented smoke.</li>
+<li><strong>Bell or Chime</strong> — To mark the beginning/end of each summoning phase.</li>
+<li><strong>Invocation Script</strong> — A written text that you speak aloud.</li>
+</ul>
+<p class="locked">This step is locked. Please purchase to unlock.</p>
+<a class="purchase-button" href="https://paypal.me/njmgroup?country.x=FR&amp;locale.x=fr_FR" target="_blank">Purchase Step 6 – Procure the Items ($500.00)</a>
+<p>Please include your shipping address in your PayPal payment note.</p>
+</div>
+<div id="unlockSection">
+<p>Enter the passcode provided after purchase:</p>
+<input id="passcodeInput" placeholder="Passcode" type="password"/>
+<button id="passcodeBtn">Unlock</button>
+<p class="error" id="passcodeError">Incorrect passcode.</p>
+</div>
+<div class="hidden" id="contentSection">
+<form id="shipForm">
+<p>Please provide your shipping details for item delivery:</p>
+<input id="shipName" placeholder="Full Name" type="text"/>
+<textarea id="shipAddress" placeholder="Shipping Address"></textarea>
+<button id="shipBtn">Submit Shipping Info</button>
+</form>
+<script>
+      document.getElementById("shipBtn").addEventListener("click", function() {
+        const name = document.getElementById("shipName").value.trim();
+        const addr = document.getElementById("shipAddress").value.trim();
+        window.location.href = `mailto:shipping@njmgroup.com?subject=Shipping%20Info%20Step%206&body=Name:%20${encodeURIComponent(name)}%0AAddress:%20${encodeURIComponent(addr)}`;
+      });
+    </script>
+<p>You will receive the items required to complete the ritual Step 7.</p>
+<p><a href="step7.html">Next: Step 7 – The Ritual</a></p>
+</div>
+</div>
+<script>
+    document.getElementById('passcodeBtn').addEventListener('click', function() {
+      const entry = document.getElementById('passcodeInput').value.trim();
+      if (entry === 'PROCUREITEMS') {
+        document.getElementById('lockedSection').style.display = 'none';
+        document.getElementById('unlockSection').style.display = 'none';
+        document.getElementById('contentSection').classList.remove('hidden');
+      } else {
+        document.getElementById('passcodeError').style.display = 'block';
+      }
+    });
+  </script>
+</main></body>
+</html>

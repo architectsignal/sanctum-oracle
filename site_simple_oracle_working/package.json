@@ -1,0 +1,23 @@
+{
+  "name": "matrixreprogrammed",
+  "version": "1.0.0",
+  "description": "Bundled and minified assets for MatrixReprogrammed site",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open"
+  },
+  "devDependencies": {
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^4.0.0",
+    "html-webpack-plugin": "^5.0.0",
+    "html-loader": "^3.0.0",
+    "css-loader": "^6.0.0",
+    "style-loader": "^3.0.0",
+    "file-loader": "^6.0.0"
+  },
+  "dependencies": {
+    "openai": "^4.8.0"
+  },
+  "type": "module"
+}

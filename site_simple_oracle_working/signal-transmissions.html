@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Transmissions from The Signal</title>
+<style>
+    body {
+      background-color: black;
+      color: cyan;
+      font-family: 'Courier New', monospace;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px cyan;
+    }
+    .transmission {
+      border: 1px solid cyan;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      background-color: rgba(0,255,255,0.05);
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+<meta content="Explore Signal Transmissions on MatrixReprogrammed: uncover symbolic decryptions and secret lore." name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "description": "MatrixReprogrammed: Decode symbolic payloads and uncover secret lore through the Original Codex."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "logo": "https://matrixreprogrammed.example.com/assets/img/logo.png",
+    "sameAs": [
+      "https://twitter.com/MatrixReprog",
+      "https://github.com/MatrixReprogrammed"
+    ]
+  }
+]</script><link href="https://yourdomain.com/signal-transmissions.html" rel="canonical"/><meta content="Transmissions from The Signal" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<h1>📡 Transmissions from The Signal</h1>
+<div id="transmissions"></div>
+<script>
+    async function loadTransmissions() {
+      const res = await fetch('signal-transmissions.json');
+      const data = await res.json();
+      const container = document.getElementById('transmissions');
+      data.forEach(drop => {
+        const div = document.createElement('div');
+        div.className = 'transmission';
+        if (drop.id === 7 && !localStorage.getItem("finalRitualComplete")) {
+          div.classList.add("hidden");
+        }
+        div.innerHTML = `
+          <strong>${drop.title}</strong><br>
+          <small>${drop.timestamp}</small><br>
+          <p>${drop.message}</p>
+          <small>Tags: ${drop.tags.join(', ')}</small>
+        `;
+        container.appendChild(div);
+      });
+    }
+    loadTransmissions();
+  </script>
+</main></body>
+</html>

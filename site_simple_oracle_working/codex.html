@@ -1,0 +1,1029 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Codex | Matrix Reprogrammed</title>
+<style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Courier New', monospace;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #00ffcc;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    canvas {
+      z-index: 1;
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 80px 20px;
+      color: #00ffcc;
+    }
+    .content img.sigil {
+      width: 120px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 15px #00ffaa);
+    }
+    .content h1 {
+      font-size: 2.8em;
+      text-shadow: 0 0 10px #00ffaa;
+    }
+    .content h2 {
+      font-weight: normal;
+      color: #00ffaa;
+      margin-bottom: 15px;
+    }
+    .content h3 {
+      font-weight: normal;
+      color: #00ffee;
+      margin: 30px auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    .button-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: black;
+      background-color: #00ffaa;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 0 20px #00ffaa;
+      transition: 0.3s;
+    }
+    .button-link:hover {
+      background-color: #00ffcc;
+      box-shadow: 0 0 30px #00ffcc;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-top: 1px solid #00ffaa;
+      box-shadow: 0 -2px 10px #00ffaa;
+    }
+    .footer img.symbol {
+      width: 50px;
+      filter: drop-shadow(0 0 10px #00ffaa);
+      margin-top: 5px;
+    }
+    .footer p {
+      margin: 5px 0;
+      font-style: italic;
+      color: #00ffaa;
+      text-shadow: 0 0 8px #00ffaa;
+    }
+  
+<style>
+  @keyframes glitchPulse {
+    0% { opacity: 0.35; transform: translateX(-50%) scale(1); }
+    10% { opacity: 0.4; transform: translateX(-50%) scale(1.02) skewX(1deg); }
+    20% { opacity: 0.3; transform: translateX(-50%) scale(0.98) skewX(-1deg); }
+    30% { opacity: 0.38; transform: translateX(-50%) scale(1.01); }
+    50% { opacity: 0.33; transform: translateX(-50%) scale(1); }
+    70% { opacity: 0.37; transform: translateX(-50%) scale(1.03) skewY(1deg); }
+    90% { opacity: 0.36; transform: translateX(-50%) scale(0.99) skewX(1deg); }
+    100% { opacity: 0.35; transform: translateX(-50%) scale(1); }
+  }
+  .glitch-sigil {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+    animation: glitchPulse 3s infinite ease-in-out;
+  }
+  .glitch-sigil img {
+    width: 100px;
+    opacity: 1;
+    filter: drop-shadow(0 0 30px #00ffaa) brightness(1.6);
+  }
+</style>
+<style>
+.glyph-trigger {
+  position: fixed;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+.glyph-trigger:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px crimson);
+}
+.glyph-icon {
+  width: 40px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.glyph-icon:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+</style>
+<meta content="Explore Codex on MatrixReprogrammed: uncover symbolic decryptions and secret lore." name="description"/><script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "description": "MatrixReprogrammed: Decode symbolic payloads and uncover secret lore through the Original Codex."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "logo": "https://matrixreprogrammed.example.com/assets/img/logo.png",
+    "sameAs": [
+      "https://twitter.com/MatrixReprog",
+      "https://github.com/MatrixReprogrammed"
+    ]
+  }
+]</script><link href="https://yourdomain.com/codex.html" rel="canonical"/><meta content="Codex | Matrix Reprogrammed" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<div class="glitch-sigil">
+<img alt="Sigil" loading="lazy" src="sigil.png"/>
+</div>
+<canvas id="matrixCanvas"></canvas>
+<div class="content">
+<div id="filters" style="text-align: center; margin: 20px 0 40px 0; z-index: 10; position: relative;">
+<style>
+    .occult-filter {
+      display: inline-block;
+      font-size: 24px;
+      color: #00ffaa;
+      margin: 6px;
+      cursor: pointer;
+      font-family: serif;
+      text-shadow: 0 0 8px #00ffaa;
+      transition: transform 0.3s ease;
+    }
+    .occult-filter:hover {
+      color: #ffffff;
+      transform: scale(1.3);
+    }
+  </style>
+<span class="occult-filter" onclick="filterProjects('all')" title="All">✴</span>
+<span class="occult-filter" onclick="filterProjects('mind-control')" title="Mind Control">🜍</span>
+<span class="occult-filter" onclick="filterProjects('false-flag')" title="False Flag">⛧</span>
+<span class="occult-filter" onclick="filterProjects('surveillance')" title="Surveillance">🜏</span>
+<span class="occult-filter" onclick="filterProjects('ritual')" title="Occult / Ritual">🜨</span>
+<span class="occult-filter" onclick="filterProjects('elite')" title="Elite Control">🝬</span>
+<span class="occult-filter" onclick="filterProjects('hidden-history')" title="Hidden History">🜭</span>
+<span class="occult-filter" onclick="filterProjects('genetics')" title="Genetics">🜺</span>
+<span class="occult-filter" onclick="filterProjects('technology')" title="Secret Tech">🜓</span>
+</div>
+<script>
+function filterProjects(tag) {
+  const projects = document.querySelectorAll('.project');
+  projects.forEach(p => {
+    const tags = p.dataset.tags || '';
+    if (tag === 'all' || tags.includes(tag)) {
+      p.style.display = 'block';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+}
+</script>
+<script>
+function filterProjects(tag) {
+  const projects = document.querySelectorAll('.project');
+  projects.forEach(p => {
+    const tags = p.dataset.tags || '';
+    if (tag === 'all' || tags.includes(tag)) {
+      p.style.display = 'block';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+}
+</script>
+<nav aria-label="Main navigation" style="background: black; text-align: center; padding: 1rem; border-bottom: 1px solid var(--matrix-green);">
+<a href="index.html" onmouseout="this.style.color='var(--matrix-green)'" onmouseover="this.style.color='white'" style="color: var(--matrix-green); margin: 0 1rem; text-decoration: none; font-weight: bold; text-shadow: 0 0 5px var(--matrix-green);">Home</a>
+<a href="codex.html" onmouseout="this.style.color='var(--matrix-green)'" onmouseover="this.style.color='white'" style="color: var(--matrix-green); margin: 0 1rem; text-decoration: none; font-weight: bold; text-shadow: 0 0 5px var(--matrix-green);">Codex</a>
+<a href="transmissions.html" onmouseout="this.style.color='var(--matrix-green)'" onmouseover="this.style.color='white'" style="color: var(--matrix-green); margin: 0 1rem; text-decoration: none; font-weight: bold; text-shadow: 0 0 5px var(--matrix-green);">Transmissions</a>
+<a href="podcast.html" onmouseout="this.style.color='var(--matrix-green)'" onmouseover="this.style.color='white'" style="color: var(--matrix-green); margin: 0 1rem; text-decoration: none; font-weight: bold; text-shadow: 0 0 5px var(--matrix-green);">Podcast</a>
+<a href="members.html" onmouseout="this.style.color='var(--matrix-green)'" onmouseover="this.style.color='white'" style="color: var(--matrix-green); margin: 0 1rem; text-decoration: none; font-weight: bold; text-shadow: 0 0 5px var(--matrix-green);">Members</a>
+<a href="contact.html" onmouseout="this.style.color='var(--matrix-green)'" onmouseover="this.style.color='white'" style="color: var(--matrix-green); margin: 0 1rem; text-decoration: none; font-weight: bold; text-shadow: 0 0 5px var(--matrix-green);">Contact</a>
+</nav>
+<h1>🜏 The Codex</h1>
+<section class="riddle-hint" style="margin:2rem auto; max-width:600px; color:#e0e0e0; font-style:italic; text-align:center;">
+<p>To chart the chambers lost in endless rain,<br/>
+       Seek where droplets fall and codes remain;<br/>
+       Venture forth into the green‑lit storm,<br/>
+       Where ancient doors their secrets form.</p>
+</section>
+<div style="text-align:center; margin: 2rem 0;">
+<input id="searchInput" placeholder="Search the Codex..." style="padding: 0.5rem 1rem; width: 60%; max-width: 600px; border-radius: 8px; border: none; background: #111; color: #0ff; font-size: 1rem; box-shadow: 0 0 5px #0ff;" type="text"/>
+</div>
+<script>
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const chars = "CIA 9/11 MKULTRA BLUEBEAM CONTROL ".split("");
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array.from({ length: columns }).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ffcc";
+      ctx.font = fontSize + "px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 50);
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const decodeBtn = document.querySelector(".decode-button");
+  const decodeInput = document.getElementById("decodeInput");
+  const decodeType = document.getElementById("inputType");
+  const output = document.getElementById("decoder-output");
+
+  decodeBtn.addEventListener("click", () => {
+    const input = decodeInput.value.trim().toLowerCase();
+    const type = decodeType.value;
+    if (!input) {
+      output.innerText = "🜏 No input detected...";
+      return;
+    }
+
+    output.innerText = "🝖 Decoding...";
+
+    setTimeout(() => {
+      let result = "";
+
+      const deepMatches = {'mk ultra': '🜍 Input: MK Ultra\n🧿 Symbolic: Mind fracturing through trauma; Monarch gateway\n🔢 Numerology: 13 letters (rebellion); K=11 (Masonic twin)\n🗂 Codex Links: MK Ultra, Project Monarch, Hollywood Mind Control\n🕯 Ritual Profile: Trauma programming, child ritual abuse, dissociation\n🌐 CIA Program 1953-1973 | Docs: declassified (FOIA)', '33': '⛧ Input: 33\n🧿 Symbolic: Master number, Masonic rite, dual pillars\n🔢 Numerology: 3+3=6 (hex); mirrored gates; 11+11+11\n🗂 Codex Links: 9/11, MK Ultra, Monarch, Waco Siege\n🕯 Ritual Profile: Initiation, sacrifice date anchor, ritual inversion\n🌐 Seen in JFK (11/22), Waco, Las Vegas, 9/11', 'saturn': '🜏 Input: Saturn\n🧿 Symbolic: Lord of Time, Death, Control, Elite worship\n🔢 Numerology: 6-point cube, 666 (hex seal), ritual anchor\n🗂 Codex Links: Surveillance Grid, Elite Control, Epstein Files\n🕯 Ritual Profile: Saturnian cube, binding, restriction of souls\n🌐 Tied to Black Cube worship, elite cults, false light inversion', '9/11/2001': '🜏 Input: 9/11/2001\n🧿 Symbolic: Twin Pillars, Fire Gate, Sacrificial Ritual\n🔢 Numerology: 9+1+1 = 11 (gateway), 9+1+1+2+0+0+1 = 14 (deception)\n🗂 Codex Links: 9/11, Project Blue Beam, WTC Sacrifice, Paperclip Legacy\n🕯 Ritual Profile: Mass trauma event, global initiation into surveillance\n🌐 Codex Trigger Date | Docs: PNAC, CIA Briefings', '⛧': '⛧ Input: Inverted Pentagram\n🧿 Symbolic: False light, subversion of divine order, inversion\n🔢 Numerology: 5 points inverted (anti-human), reversal of 5 elements\n🗂 Codex Links: Monarch, Satanic Networks, False Flags\n🕯 Ritual Profile: Black mass, Saturnian inversion, mind fracture\n🌐 Seen in Monarch iconography, Epstein island, elite ritual symbology'};
+
+      result = deepMatches[input] || "🜐 No deeper match. Try: mk ultra, 33, saturn, ⛧, 9/11/2001";
+
+      output.innerText = result;
+    }, 600);
+  });
+});
+</script>
+<section id="codex-main-projects"><div class="project" data-tags="mind-control cia ritual drugs">
+<h2>MK Ultra</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A top-secret CIA mind control project that used drugs, electroshock, hypnosis, and torture on unwitting subjects to explore behavior modification.</p>
+<a href="https://www.cia.gov/readingroom/search/site/MK%20Ultra" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Category:MKULTRA" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3G3JCMv" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/MK%20Ultra" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="hidden-history cern mandela-effect reality">
+<h2>Project Mirrorworld</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A theory suggesting CERN, quantum computing, and Mandela Effects are byproducts of a hidden mirrored reality colliding with our own.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Mandela%20Effect" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Mandela_Effect" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Mirrorworld" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag military cia">
+<h2>Operation Northwoods</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A declassified plan where U.S. officials proposed false flag attacks on Americans to justify war with Cuba — including hijackings and fake casualties.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Northwoods" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Northwoods" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Northwoods" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Operation Ajax</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">1953 CIA-led coup in Iran to overthrow Prime Minister Mohammad Mosaddegh.</p>
+<a href="https://www.cia.gov/readingroom/docs/1953%20Iran%20coup%20summary.pdf" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Ajax" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Ajax" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Project MKOFTEN</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">CIA and U.S. Army partnered to test occult rituals, psychics, and drugs for mind control.</p>
+<a href="https://www.cia.gov/readingroom/search/site/MKOFTEN" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/MK_OFTEN" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20MKOFTEN" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Pyramids as Power Stations</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Ancient pyramids may have been advanced energy devices, transmitting power wirelessly via Earth's natural frequencies — far beyond tombs or monuments.</p>
+<a href="https://www.cia.gov/readingroom/search/site/pyramid%20energy" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Pyramids" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Pyramids%20as%20Power%20Stations" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>The Cabal</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">An elite intergenerational network of financiers, aristocrats, and occultists believed to orchestrate global crises, control currency, and manipulate mass consciousness.</p>
+<a href="https://www.cia.gov/readingroom/search/site/global%20elite" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/The_Cabal" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/The%20Cabal" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Illuminati (Expanded)</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">From its Bavarian origins to global dominance theories, the Illuminati is believed to have infiltrated institutions, media, and secret societies to steer humanity covertly.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Illuminati" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Illuminati" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Illuminati%20(Expanded)" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Secret Societies</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Organizations like the Freemasons, Skull and Bones, and Rosicrucians operate in secrecy, embedding symbols in architecture, currency, and rituals that govern hidden power.</p>
+<a href="https://www.cia.gov/readingroom/search/site/secret%20society" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Secret_societies" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Secret%20Societies" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>The Black Pope</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Title for the Jesuit Superior General — believed by many to wield covert control over the Vatican, global intelligence, and key political structures behind the scenes.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Black%20Pope" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Black_Pope" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/The%20Black%20Pope" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Luciferian Doctrine</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A philosophical system embraced by occult elites, promoting inversion of morality, self-deification, and ritual power through hidden esoteric knowledge and sacrifice.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Luciferian" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Luciferian" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Luciferian%20Doctrine" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Project SUNSHINE</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Secret radiation research using body parts (including infants) without family consent.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Project%20Sunshine" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_Sunshine" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20SUNSHINE" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Operation Sea-Spray</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">1950 U.S. Navy bio-warfare test spraying bacteria over San Francisco residents.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Sea-Spray" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Sea-Spray" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Sea-Spray" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Project CHATTER</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Early CIA mind control project testing mescaline and scopolamine for interrogation.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Project%20Chatter" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_Chatter" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20CHATTER" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Project MKNAOMI</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Bioweapons research partner to MK Ultra using viruses, toxins, and delivery systems.</p>
+<a href="https://www.cia.gov/readingroom/search/site/MKNAOMI" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_MKNAOMI" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20MKNAOMI" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Operation LAC</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Large-scale aerosol testing over U.S. cities with potentially toxic compounds.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20LAC" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_LAC" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20LAC" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Fort Detrick Experiments</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">U.S. military base known for dark human testing in biowarfare and psychotropics.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Fort%20Detrick" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Fort_Detrick" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Fort%20Detrick%20Experiments" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Operation Ranch Hand</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">U.S. sprayed toxic defoliants (pre-Agent Orange) over Vietnam, causing lasting harm.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Ranch%20Hand" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Ranch_Hand" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Ranch%20Hand" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Majestic 12</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Alleged top-secret group managing UFO and extraterrestrial contact cover-ups.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Majestic%2012" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Majestic_12" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Majestic%2012" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Project SERPO</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Claimed U.S. government exchange program with extraterrestrials from Zeta Reticuli.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Project%20Serpo" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_SERPO" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20SERPO" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Birds Aren’t Real</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Popular theory claiming birds were replaced by drones in mass surveillance operation.</p>
+<a href="https://www.cia.gov/readingroom/search/site/bird%20drone" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Birds_Aren%27t_Real" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Birds%20Aren’t%20Real" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Operation Cyclone</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">CIA program to fund and arm the Mujahideen in Afghanistan during the Cold War.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Cyclone" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Cyclone" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Cyclone" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Iran-Contra Affair</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">U.S. secretly sold weapons to Iran and used profits to fund Nicaraguan rebels.</p>
+<a href="https://www.cia.gov/readingroom/collection/iran-contra-affair" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Iran%E2%80%93Contra_affair" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Iran-Contra%20Affair" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>USS Liberty Attack</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">1967 Israeli attack on a U.S. Navy ship during the Six-Day War, covered up by U.S. officials.</p>
+<a href="https://www.cia.gov/readingroom/search/site/USS%20Liberty" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/USS_Liberty_attack" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/USS%20Liberty%20Attack" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Bohemian Grove</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Secretive annual gathering of elites with occult-like rituals in California.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Bohemian%20Grove" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Bohemian_Grove" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Bohemian%20Grove" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Operation Popeye</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Weather warfare program using cloud seeding to extend the monsoon season in Vietnam.</p>
+<a href="https://www.cia.gov/readingroom/docs/CIA-RDP79-01093A001100140001-1.pdf" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Popeye" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Popeye" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Project Artichoke</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">CIA project exploring interrogation and mind control techniques before MK Ultra.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Project%20Artichoke" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_ARTICHOKE" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Artichoke" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Skull and Bones Society</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Yale secret society connected to major political families and occult symbolism.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Skull%20and%20Bones" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Skull_and_Bones" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Skull%20and%20Bones%20Society" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Franklin Cover-Up</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Alleged child trafficking and abuse scandal involving political elites in Nebraska.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Franklin%20Coverup" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Franklin_child_prostitution_ring" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Franklin%20Cover-Up" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>The Finders Cult</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A secretive group investigated for trafficking and ritual abuse with ties to intelligence agencies.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Finders" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/The_Finders" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/The%20Finders%20Cult" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Operation Snow White</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Church of Scientology's largest infiltration of the U.S. government in history.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Snow%20White" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Snow_White" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Snow%20White" target="_blank">📖 Wikipedia</a><br/></div><div class="project">
+<h2>Deagel Forecast</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Mysterious military-linked site predicting massive population declines by 2025.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Deagel" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Deagel" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Deagel%20Forecast" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="mind-control war assassination psychological">
+<h2>Phoenix Program</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A CIA-backed covert operation during the Vietnam War involving psychological warfare, assassinations, and torture of suspected insurgents.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Phoenix%20Program" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Phoenix_Program" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Phoenix%20Program" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag nato war europe">
+<h2>Operation Gladio</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">NATO’s secret post-WWII network accused of orchestrating domestic terror attacks in Europe to prevent leftist movements from gaining power.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Gladio" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Gladio" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Gladio" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="surveillance psychological domestic">
+<h2>Zersetzung (Stasi)</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">East Germany’s psychological warfare program targeting dissidents with stalking, gaslighting, and social sabotage to destroy lives without violence.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Zersetzung" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Zersetzung" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Zersetzung%20(Stasi)" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite economy digital-id population-control">
+<h2>The Great Reset</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A World Economic Forum initiative promoted as sustainable reform but viewed by critics as a push toward digital control and global technocracy.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Great%20Reset" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Great_Reset" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/The%20Great%20Reset" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="technology elite time-travel">
+<h2>Project Looking Glass</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Alleged secret technology allowing glimpses into potential futures and timeline manipulation, often connected to ancient artifacts and Stargates.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Looking%20Glass" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_Looking_Glass" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Looking%20Glass" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="mind-control technology time-travel ritual">
+<h2>Montauk Project</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A rumored government experiment in New York involving time travel, mind control, and interdimensional beings beneath Montauk Air Force Station.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Montauk" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Montauk_Project" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Montauk%20Project" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="technology quantum teleportation secret">
+<h2>Project Pegasus</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Claims that DARPA developed quantum teleportation and time travel capabilities in the 1970s, involving children in classified missions.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Project%20Pegasus" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_Pegasus" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Pegasus" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="ufo military technology">
+<h2>DUMBs (Deep Underground Military Bases)</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Alleged vast underground facilities beneath the U.S. and other countries used for black ops, genetic experiments, alien contact, and elite refuge.</p>
+<a href="https://www.cia.gov/readingroom/search/site/underground%20base" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/DUMB" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/DUMBs%20(Deep%20Underground%20Military%20Bases)" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite occult population-control">
+<h2>The Georgia Guidestones</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A mysterious granite monument with commandments in multiple languages calling for massive population reduction and global governance.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Georgia%20Guidestones" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Georgia_Guidestones" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/The%20Georgia%20Guidestones" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="nasa space hidden-history">
+<h2>Project Abyss</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A theory claiming outer space is a fabricated construct hiding the true nature of our world — a void concealing the firmament or hidden land.</p>
+<a href="https://www.cia.gov/readingroom/search/site/NASA%20space%20deception" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/NASA" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Abyss" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="hidden-history tartaria timeline">
+<h2>Project Echoes</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Research into forbidden history — lost civilizations like Tartaria, mud floods, and world fairs used to mask a global reset and erase timelines.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Tartaria" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Tartaria" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Echoes" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="genetics elite anunnaki dna">
+<h2>Project Genesis Rewrite</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">An investigation into genetic tampering by elite bloodlines and possible alien races like the Anunnaki — rewriting creation myths and human DNA.</p>
+<a href="https://www.cia.gov/readingroom/search/site/DNA%20manipulation" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/CRISPR" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Genesis%20Rewrite" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="mind-control frequency 5g">
+<h2>Project Signal Jam</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Theorized use of frequency weapons, 5G, and digital signals to disrupt consciousness, suppress awakening, and manipulate emotion.</p>
+<a href="https://www.cia.gov/readingroom/search/site/frequency" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/5G" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Signal%20Jam" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="surveillance ai digital-id">
+<h2>Project Watchers</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Surveillance systems as digital deities — from Babylonian eyes to biometric tracking and AI-driven omniscience.</p>
+<a href="https://www.cia.gov/readingroom/search/site/surveillance" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Digital_surveillance" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Watchers" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="ritual trauma elite">
+<h2>Project Harvest</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Alleged ritual economy where elites harvest trauma, energy, and even blood through war, abuse, and mass manipulation for occult purposes.</p>
+<a href="https://www.cia.gov/readingroom/search/site/child%20sacrifice" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Ritual_Abuse" target="_blank">🕸 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Harvest" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag nasa religion hologram">
+<h2>Project Blue Beam</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A secret program to simulate a global religious event using holograms and mind control to usher in a one-world government.</p>
+<a href="https://www.cia.gov/readingroom/docs/CIA-RDP96-00788R001700210004-4.pdf" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Project_Blue_Beam" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3XGsF0M" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Blue%20Beam" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="nazi cia technology elite">
+<h2>Operation Paperclip</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Post-WWII U.S. program that secretly brought Nazi scientists — including war criminals — into NASA and U.S. intelligence services.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Paperclip" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Paperclip" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/42hOdlP" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Paperclip" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="nasa hidden-history space">
+<h2>Flat Earth</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A belief system asserting the Earth is a flat, enclosed or infinite plane with hidden lands beyond the Antarctic — concealed by global powers to limit human potential.</p>
+<a href="https://www.cia.gov/readingroom/document/cia-rdp96-00792r000700610001-6" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Flat_Earth" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4jhTp00" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Flat%20Earth" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="mind-control esp cia">
+<h2>Project Stargate</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A U.S. military remote viewing program that trained psychics to gather intelligence through extrasensory perception (ESP) during the Cold War.</p>
+<a href="https://www.cia.gov/readingroom/collection/stargate" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Category:Remote_Viewing" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4jhgCzu" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Stargate" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="mind-control ritual trauma elite">
+<h2>Project Monarch</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A subset of MK Ultra believed to focus on trauma-based mind control using dissociation, symbolism, and ritual abuse — often linked to elite networks.</p>
+<a href="https://www.cia.gov/readingroom/search/site/monarch%20mind%20control" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Monarch_mind_control" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3YeSfKt" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Project%20Monarch" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag media cia disinformation">
+<h2>Operation Mockingbird</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A covert CIA program that infiltrated and manipulated the mainstream media, placing agents as journalists to shape public perception.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Mockingbird" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_Mockingbird" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/42dYmzS" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Mockingbird" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag fbi surveillance psychological">
+<h2>COINTELPRO</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">An FBI program targeting civil rights leaders, activists, and dissenters through surveillance, disinformation, and psychological warfare.</p>
+<a href="https://www.cia.gov/readingroom/search/site/COINTELPRO" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/COINTELPRO" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4l4iehw" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/COINTELPRO" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag cia surveillance domestic">
+<h2>Operation CHAOS</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A secret CIA operation to monitor and suppress domestic anti-war movements and political activists under the guise of foreign subversion.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20CHAOS" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Operation_CHAOS" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/43CaQns" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20CHAOS" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="ufo cover-up military">
+<h2>Operation Grudge</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A post-Project Sign investigation into UFOs that sought to debunk sightings, while internally confirming unexplained aerial phenomena.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Grudge" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/UFO_files" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4hVGb84" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Grudge" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="nasa false-flag military space">
+<h2>Operation Fishbowl</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">High-altitude nuclear tests conducted by the U.S. to study space weaponization, with theories suggesting they were attempts to breach the firmament.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Operation%20Fishbowl" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Nuclear_tests" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4ld0Hnt" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Operation%20Fishbowl" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag war surveillance elite">
+<h2>9/11</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">The 2001 terrorist attacks on the World Trade Center and Pentagon, widely believed to involve foreknowledge, stand-downs, or false flag operations for global war and surveillance.</p>
+<a href="https://www.cia.gov/readingroom/search/site/9%2F11" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Special:Search?search=9/11" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/44eEvDc" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/9/11" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag war cover-up">
+<h2>Gulf of Tonkin</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A staged naval incident used by the U.S. to justify escalation in Vietnam, later revealed to have been distorted or fabricated.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Gulf%20of%20Tonkin" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Gulf_of_Tonkin" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3QZ0UwD" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Gulf%20of%20Tonkin" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag terror domestic">
+<h2>Oklahoma City Bombing</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">The 1995 truck bombing of a federal building, officially blamed on Timothy McVeigh, but surrounded by evidence of government foreknowledge and additional perpetrators.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Oklahoma%20City%20Bombing" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Oklahoma_City_bombing" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3Rkhbwx" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Oklahoma%20City%20Bombing" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag gun-control media">
+<h2>Sandy Hook</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A 2012 school shooting with controversial media coverage, inconsistencies, and theories involving crisis actors, foreknowledge, and narrative control.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Sandy%20Hook" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Sandy_Hook" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/42sd1ZB" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Sandy%20Hook" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag mass-shooting cover-up">
+<h2>Las Vegas Shooting</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">The deadliest mass shooting in U.S. history in 2017 — with a lone gunman narrative that leaves behind dozens of unanswered questions and missing footage.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Las%20Vegas%20Shooting" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Las_Vegas_shooting" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4lhYDe4" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Las%20Vegas%20Shooting" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag psychological government">
+<h2>Waco Siege</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A 1993 federal standoff with the Branch Davidians that ended in a fiery massacre — viewed by many as a planned psychological operation against dissident groups.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Waco%20Siege" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Waco_siege" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4iZJ1KI" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Waco%20Siege" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="false-flag banking elite">
+<h2>Titanic</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">The 1912 maritime disaster that may have been a deliberate insurance fraud or elite takedown — targeting financiers opposed to the creation of the Federal Reserve.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Titanic" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Titanic" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3FSnTav" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Titanic" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="war elite banking">
+<h2>World Wars &amp; Economic Triggers</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">The idea that both World Wars were engineered by global financiers and secret societies to reshape borders, depopulate, and establish global governance.</p>
+<a href="https://www.cia.gov/readingroom/search/site/World%20War" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/World_War_II_documents" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3DYVkrl" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/World%20Wars%20&amp;%20Economic%20Triggers" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite banking war">
+<h2>Rothschilds &amp; Others</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">One of the most powerful banking dynasties, alleged to be key architects behind central banking, war funding, and elite world control mechanisms.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Rothschild" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Rothschild_family" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3DRMbkl" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Rothschilds%20&amp;%20Others" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite occult religion">
+<h2>The Jesuits</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A Catholic order with deep intelligence ties, accused of orchestrating global conflicts and serving as the shadow hand behind religious and political manipulation.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Jesuits" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/The_Jesuits" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/42nWtC1" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/The%20Jesuits" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="hidden-history occult religion">
+<h2>Vatican Archives</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Secretive vaults containing suppressed history, occult knowledge, and potentially evidence of non-human contact hidden from the public for centuries.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Vatican" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Vatican" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/44eEEqe" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Vatican%20Archives" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite banking shadow-government">
+<h2>Committee of 300</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A purported group of elite families, royalty, and think tanks guiding world affairs from the shadows through economic control and engineered conflict.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Committee%20of%20300" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Committee_of_300" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/42rz9Dm" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Committee%20of%20300" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite vatican royalty">
+<h2>Black Nobility</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">European aristocratic families with ancient ties to the Vatican, banking empires, and secret societies — believed to control global policy from the shadows.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Black%20Nobility" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Black_Nobility" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/42eEdJY" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Black%20Nobility" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite banking cover-up">
+<h2>Khazarian Mafia</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A covert ruling class linked to ancient bloodlines and financial control networks, accused of masquerading across empires to preserve dominance.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Khazarian%20Mafia" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Khazarian_Mafia" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/44bo0Ib" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Khazarian%20Mafia" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite ritual bloodline">
+<h2>Bloodline PDFs</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Leaked documents outlining elite Illuminati family trees and generational power structures passed down through secret marriages and ritual initiation.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Bloodline" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Illuminati_bloodlines" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/41Z86zm" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Bloodline%20PDFs" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite blackmail trafficking">
+<h2>Epstein Files</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A vast network of elite blackmail, human trafficking, and intelligence operations exposed through Jeffrey Epstein's arrests, associates, and mysterious death.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Epstein" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Epstein" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4hXTiWf" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Epstein%20Files" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="elite cover-up media">
+<h2>Clinton Emails</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A trove of leaked communications revealing influence peddling, Benghazi misdirection, and suspected coded language linked to deeper scandals.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Clinton%20Emails" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Special:Search?search=Clinton+Emails" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4jbOVI3" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Clinton%20Emails" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="ritual elite trafficking">
+<h2>Pizzagate</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A controversial theory suggesting elite involvement in ritual abuse and trafficking rings, sparked by leaked Podesta emails and hidden symbolism.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Pizzagate" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Pizzagate" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3RvTZex" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Pizzagate" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="ritual trauma elite">
+<h2>Ritual Abuse Networks</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Global rings tied to elite groups allegedly using ritual trauma to fracture and program victims — protected by intelligence, media, and law enforcement.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Ritual%20Abuse" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Ritual_Abuse" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4jhIdAp" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Ritual%20Abuse%20Networks" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="mind-control media elite">
+<h2>Hollywood Mind Control</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">The use of celebrities and pop culture as tools of mass manipulation, with themes of symbolism, handler relationships, and dissociative programming.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Hollywood%20Mind%20Control" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Hollywood" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4jeHjET" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Hollywood%20Mind%20Control" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="nasa space cover-up">
+<h2>NASA Deception</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Accusations that NASA fabricates imagery and missions to support a false cosmology and hide the truth of Earth’s nature and outer realms.</p>
+<a href="https://www.cia.gov/readingroom/search/site/NASA" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/NASA" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3DR3dz5" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/NASA%20Deception" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="nasa hidden-history forbidden-zone">
+<h2>Antarctica &amp; Ice Wall</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Claims that Antarctica is a militarized no-go zone concealing vast lands, ancient ruins, or the boundaries of our known world.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Antarctica" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Antarctica" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3XGtoz2" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Antarctica%20&amp;%20Ice%20Wall" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="hidden-history timeline reset">
+<h2>Tartaria</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">An erased civilization theorized to have possessed advanced architecture and technology, hidden by global powers through historical resets and mud floods.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Tartaria" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Tartaria" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/43Dbmla" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Tartaria" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="reality memory dimensional">
+<h2>Mandela Effect</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A phenomenon where masses remember alternate versions of history, suggesting timeline manipulation, false memory implantation, or dimensional bleed-through.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Mandela%20Effect" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Mandela_Effect" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/4lamiwG" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Mandela%20Effect" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="mind-control surveillance frequency">
+<h2>5G Warfare</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Concerns that 5G networks may be used as a form of frequency manipulation, surveillance, or neurological disruption under the guise of faster connectivity.</p>
+<a href="https://www.cia.gov/readingroom/search/site/5G" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/5G" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3YbCdks" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/5G%20Warfare" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="genetics technology elite">
+<h2>Genetic Rewriting (CRISPR)</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">The use of gene editing tools to alter human DNA, raising fears of designer genetics, transhumanism, and elite biological control programs.</p>
+<a href="https://www.cia.gov/readingroom/search/site/CRISPR" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/CRISPR" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/41WiyaP" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Genetic%20Rewriting%20(CRISPR)" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="weather technology warfare">
+<h2>Weather Control / HAARP</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">Claims that HAARP and similar technologies are capable of triggering earthquakes, hurricanes, or droughts for warfare and population control.</p>
+<a href="https://www.cia.gov/readingroom/search/site/HAARP" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/HAARP" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3XGWD4Q" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Weather%20Control%20/%20HAARP" target="_blank">📖 Wikipedia</a><br/></div><div class="project" data-tags="surveillance elite digital-id">
+<h2>Surveillance Grid / Digital ID / CBDC</h2>
+<p style="color: #00ffaa; font-style: italic; margin-top: -10px;">A convergence of biometric IDs, smart cities, and centralized digital currencies creating an inescapable global control system.</p>
+<a href="https://www.cia.gov/readingroom/search/site/Digital%20ID" target="_blank">🗂 CIA Docs</a>
+<a href="https://wikileaks.org/wiki/Digital_ID" target="_blank">🕸 WikiLeaks</a>
+<a href="https://amzn.to/3E2A3Nn" target="_blank">🜏 Occult Reference</a>
+<a href="https://www.cia.gov/readingroom" target="_blank">📁 CIA Docs</a>
+<a href="https://wikileaks.org" target="_blank">🌐 WikiLeaks</a>
+<a href="https://www.wikipedia.org/search/site/Surveillance%20Grid%20/%20Digital%20ID%20/%20CBDC" target="_blank">📖 Wikipedia</a><br/></div></section><div><h3>Air America Collection</h3><p>A covert CIA airline used during the Vietnam War for classified missions, extractions, and rumored drug smuggling operations.</p><a href="https://en.wikipedia.org/wiki/Air_America_(airline)" target="_blank">📁 Wikipedia</a><br/><a href="https://www.cia.gov/static/418d9ae1e23df69feee4b52f2c84c4d3/AirAmerica.pdf" target="_blank">📁 CIA Publication</a><br/><a href="https://www.cia.gov/readingroom/collection/air-america-collection" target="_blank">📁 CIA FOIA Collection</a><br/><a href="https://www.cia.gov/readingroom/collection/air-america-collection" target="_blank">View CIA FOIA Source</a></div><div><h3>A-12 OXCART</h3><p>High-speed reconnaissance aircraft developed as a CIA black project, predecessor to the SR-71 Blackbird.</p><a href="https://en.wikipedia.org/wiki/Lockheed_A-12" target="_blank">📁 Wikipedia</a><br/><a href="https://www.cia.gov/static/18996f9fcbf60c39b6d997d3c5e49e60/Archangel.pdf" target="_blank">📁 CIA Official History</a><br/><a href="https://www.cia.gov/readingroom/collection/a-12-oxcart" target="_blank">📁 CIA FOIA Collection</a><br/><a href="https://www.cia.gov/readingroom/collection/a-12-oxcart" target="_blank">View CIA FOIA Source</a></div><div><h3>Animal Partners</h3><p>Experimental program using animals for surveillance and intelligence operations.</p><a href="https://en.wikipedia.org/wiki/Acoustic_Kitty" target="_blank">📁 Wikipedia</a><br/><a href="https://www.cia.gov/stories/story/natural-spies-animals-in-espionage/" target="_blank">📁 CIA News Feature</a><br/><a href="https://www.cia.gov/readingroom/collection/animal-partners" target="_blank">📁 CIA FOIA Collection</a><br/><a href="https://www.cia.gov/readingroom/collection/animal-partners" target="_blank">View CIA FOIA Source</a></div><div><h3>STARGATE</h3><p>Top-secret psychic espionage program involving remote viewing experiments for intelligence purposes.</p><a href="https://en.wikipedia.org/wiki/Stargate_Project" target="_blank">📁 Wikipedia</a><br/><a href="https://www.cia.gov/readingroom/collection/stargate" target="_blank">📁 CIA FOIA Collection</a><br/><a href="https://www.cia.gov/readingroom/collection/stargate" target="_blank">View CIA FOIA Source</a></div><div><h3>DECLASSIFIED DOCUMENTS RELATED TO 9/11 ATTACKS</h3><p>Collection of CIA documents covering events, intelligence warnings, and response to the September 11, 2001 attacks.</p><a href="https://govinfo.library.unt.edu/911/report/index.htm" target="_blank">📁 9/11 Commission Report</a><br/><a href="https://vault.fbi.gov/9-11-attacks-investigation-and-related-materials" target="_blank">📁 FBI FOIA Vault</a><br/><a href="https://www.cia.gov/readingroom/document/0006544105" target="_blank">📁 CIA Inspector General Report</a><br/><a href="https://www.cia.gov/readingroom/search/site/9%2F11" target="_blank">View CIA FOIA Source</a></div><div><h3>Berlin Tunnel</h3><p>Covert 1950s CIA-MI6 operation to tap Soviet communication lines under East Berlin during the height of the Cold War.</p><a href="https://en.wikipedia.org/wiki/Operation_Gold" target="_blank">📁 Wikipedia</a><br/><a href="https://www.cia.gov/stories/story/berlin-tunnel-americas-ear-behind-the-iron-curtain/" target="_blank">📁 CIA Article</a><br/><a href="https://www.cia.gov/readingroom/collection/berlin-tunnel" target="_blank">📁 CIA FOIA Collection</a><br/><a href="https://www.cia.gov/readingroom/collection/berlin-tunnel" target="_blank">View CIA FOIA Source</a></div><div><h3>Secret Writing</h3><p>Explores invisible inks and methods of clandestine communications used by CIA operatives worldwide.</p><a href="https://text-message.blogs.archives.gov/2011/04/11/spies-and-secret-writing/" target="_blank">📁 NARA Blog</a><br/><a href="https://www.cia.gov/stories/story/cia-declassifies-oldest-documents-in-u-s-government-collection/" target="_blank">📁 CIA News Release</a><br/><a href="https://www.cia.gov/readingroom/collection/secret-writing" target="_blank">📁 CIA Declassified Docs</a><br/><a href="https://www.cia.gov/readingroom/collection/secret-writing" target="_blank">View CIA FOIA Source</a></div><div id="ritual-decoder" style="margin-top: 100px; padding: 40px 20px; border-top: 1px solid #00ffaa; text-align: center;">
+<style>
+    #ritual-decoder input, #ritual-decoder select {
+      background: transparent;
+      border: 1px solid #00ffaa;
+      color: #00ffaa;
+      font-size: 16px;
+      padding: 8px;
+      margin: 6px;
+      width: 250px;
+      max-width: 80%;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+    }
+    #ritual-decoder .decode-button {
+      background: transparent;
+      border: 1px solid #00ffaa;
+      color: #00ffaa;
+      font-size: 16px;
+      padding: 6px 16px;
+      cursor: pointer;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 6px #00ffaa;
+      margin-top: 10px;
+    }
+    #ritual-decoder .decode-button:hover {
+      background-color: #00ffaa33;
+    }
+    #decoder-output {
+      color: #00ffaa;
+      margin-top: 20px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-line;
+      transition: all 0.3s ease;
+    }
+  </style>
+<h2 style="color: #00ffaa; font-family: 'Courier New', monospace; text-shadow: 0 0 6px #00ffaa;">🜏 Ritual Decoder Module</h2>
+<select id="inputType">
+<option value="phrase">Phrase / Name</option>
+<option value="date">Date (MM/DD/YYYY)</option>
+<option value="symbol">Symbol (e.g. ⛧, ☿)</option>
+<option value="name">Name</option></select>
+<br/>
+<input id="decodeInput" placeholder="Enter your input..." type="text"/>
+<br/>
+<button class="decode-button">Decode</button>
+<div id="decoder-output">🜏 Awaiting signal...</div>
+</div><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const decodeBtn = document.querySelector(".decode-button");
+  const decodeInput = document.getElementById("decodeInput");
+  const decodeType = document.getElementById("inputType");
+  const output = document.getElementById("decoder-output");
+
+  decodeBtn.addEventListener("click", () => {
+    const input = decodeInput.value.trim().toLowerCase();
+    const type = decodeType.value;
+    if (!input) {
+      output.innerText = "🜏 No input detected...";
+      return;
+    }
+
+    output.innerText = "🝖 Decoding...";
+
+    setTimeout(() => {
+      let result = "";
+
+      const deepMatches = {'mk ultra': '🜍 Input: MK Ultra\n🧿 Symbolic: Mind fracturing through trauma; Monarch gateway\n🔢 Numerology: 13 letters (rebellion); K=11 (Masonic twin)\n🗂 Codex Links: MK Ultra, Project Monarch, Hollywood Mind Control\n🕯 Ritual Profile: Trauma programming, child ritual abuse, dissociation\n🌐 CIA Program 1953-1973 | Docs: declassified (FOIA)', '33': '⛧ Input: 33\n🧿 Symbolic: Master number, Masonic rite, dual pillars\n🔢 Numerology: 3+3=6 (hex); mirrored gates; 11+11+11\n🗂 Codex Links: 9/11, MK Ultra, Monarch, Waco Siege\n🕯 Ritual Profile: Initiation, sacrifice date anchor, ritual inversion\n🌐 Seen in JFK (11/22), Waco, Las Vegas, 9/11', 'saturn': '🜏 Input: Saturn\n🧿 Symbolic: Lord of Time, Death, Control, Elite worship\n🔢 Numerology: 6-point cube, 666 (hex seal), ritual anchor\n🗂 Codex Links: Surveillance Grid, Elite Control, Epstein Files\n🕯 Ritual Profile: Saturnian cube, binding, restriction of souls\n🌐 Tied to Black Cube worship, elite cults, false light inversion', '9/11/2001': '🜏 Input: 9/11/2001\n🧿 Symbolic: Twin Pillars, Fire Gate, Sacrificial Ritual\n🔢 Numerology: 9+1+1 = 11 (gateway), 9+1+1+2+0+0+1 = 14 (deception)\n🗂 Codex Links: 9/11, Project Blue Beam, WTC Sacrifice, Paperclip Legacy\n🕯 Ritual Profile: Mass trauma event, global initiation into surveillance\n🌐 Codex Trigger Date | Docs: PNAC, CIA Briefings', '⛧': '⛧ Input: Inverted Pentagram\n🧿 Symbolic: False light, subversion of divine order, inversion\n🔢 Numerology: 5 points inverted (anti-human), reversal of 5 elements\n🗂 Codex Links: Monarch, Satanic Networks, False Flags\n🕯 Ritual Profile: Black mass, Saturnian inversion, mind fracture\n🌐 Seen in Monarch iconography, Epstein island, elite ritual symbology'};
+
+      result = deepMatches[input] || "🜐 No deeper match. Try: mk ultra, 33, saturn, ⛧, 9/11/2001";
+
+      output.innerText = result;
+    }, 600);
+  });
+});
+</script></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("searchInput");
+    if (!searchInput) return;
+    searchInput.addEventListener("input", function() {
+      const keyword = this.value.toLowerCase();
+      const projects = document.querySelectorAll('.project');
+      projects.forEach(p => {
+        const text = p.textContent.toLowerCase();
+        if (text.includes(keyword)) {
+          p.style.display = "block";
+        } else {
+          p.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
+<!-- START OF NEW CIA PROJECTS -->
+<!-- END OF NEW CIA PROJECTS -->
+<!-- START OF CIA PROJECTS GROUPED -->
+<div class="category">
+<h2>🛰 Cold War Operations</h2>
+</div>
+<div class="category">
+<h2>🧠 Mind Control &amp; Psychological Experiments</h2>
+</div>
+<div class="category">
+<h2>📘 Declassified False Flags &amp; Global Events</h2>
+<div class="project"><h3>Project Baal</h3><p>Explores the symbolic and ritual significance of Baal, an ancient god associated with child sacrifice, fire worship, and elite occult practices. Believed to be a recurring archetype behind modern secret rituals.</p><a href="https://www.cia.gov/readingroom/search/site/baal" target="_blank">📁 CIA Docs</a><br/><a href="https://wikileaks.org/wiki/Baal" target="_blank">🕸 WikiLeaks</a><br/><a href="https://www.sacred-texts.com/evil/baal" target="_blank">📖 Occult Archives</a><br/><a href="https://www.wikipedia.org/search/site/Project%20Baal" target="_blank">📖 Wikipedia</a><br/></div><div class="project"><h3>Project Moloch</h3><p>Examines the history and worship of Moloch, a deity historically linked to child sacrifice and elite power structures. Modern references appear in symbolism, art, and alleged rituals among global elites.</p><a href="https://www.cia.gov/readingroom/search/site/moloch" target="_blank">📁 CIA Docs</a><br/><a href="https://wikileaks.org/wiki/Moloch" target="_blank">🕸 WikiLeaks</a><br/><a href="https://www.bibliotecapleyades.net/sociopolitica/esp_sociopol_moloch.htm" target="_blank">📖 Moloch Studies</a><br/><a href="https://www.wikipedia.org/search/site/Project%20Moloch" target="_blank">📖 Wikipedia</a><br/></div>
+</div>
+<!-- END OF CIA PROJECTS GROUPED -->
+<style>
+  #lucifer-trigger {
+    width: 40px;
+    height: 40px;
+    background-image: url('lucifer-sigil.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    transition: opacity 0.4s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  #lucifer-trigger:hover {
+    opacity: 1;
+    cursor: pointer;
+    filter: drop-shadow(0 0 6px crimson);
+  }
+</style>
+<div id="lucifer-trigger" onclick="window.location.href='grimoire-gate.html'"></div>
+<div class="codex-entry" id="lucifer">
+<h2>Lucifer</h2>
+<p>The Lightbringer. Once the highest archangel, now cast down. Lucifer is the archetype of rebellion, knowledge, and illumination. Worshipped in secret by elite occult societies, his sigil marks the gate of forbidden wisdom. Modern manifestations include the Promethean myth, globalist enlightenment cults, and Luciferian philosophy.</p>
+<div class="codex-tags">
+<span class="tag">occult</span> <span class="tag">elite</span> <span class="tag">symbolism</span> <span class="tag">ritual</span>
+</div>
+</div>
+<div class="codex-entry" id="baal">
+<h2>Baal</h2>
+<p>Ancient Canaanite god of storms and fertility, Baal became a central figure of forbidden worship. Biblical texts describe his altars as places of child sacrifice. The name 'Baal' appears across elite bloodlines, rituals, and coded symbols—his horned effigy persists in media and secret rites.</p>
+<div class="codex-tags">
+<span class="tag">ritual</span> <span class="tag">sacrifice</span> <span class="tag">mythology</span> <span class="tag">symbolism</span>
+</div>
+</div>
+<div class="codex-entry" id="moloch">
+<h2>Moloch</h2>
+<p>The god of fire and child sacrifice. Moloch's image—a massive bull idol—was used in ancient rituals where children were burned alive. Today, Moloch is seen in elite symbolism (e.g., Bohemian Grove). A demonic entity fed by suffering and secrecy.</p>
+<div class="codex-tags">
+<span class="tag">demonic</span> <span class="tag">child sacrifice</span> <span class="tag">elite</span> <span class="tag">ritual</span>
+</div>
+</div>
+<div class="codex-entry" id="saturn">
+<h2>Saturn</h2>
+<p>The hidden god behind time, control, and death. Known as Cronus, Saturn devoured his own children—symbolizing tyranny over creation. Saturn worship persists through secret symbolism: the black cube, scythes, rings, and elite obsession with time-based control systems.</p>
+<div class="codex-tags">
+<span class="tag">time</span> <span class="tag">elite</span> <span class="tag">saturnian cult</span> <span class="tag">black cube</span>
+</div>
+</div>
+<div class="codex-entry" id="blackcube">
+<h2>Black Cube</h2>
+<p>An occult representation of Saturn. Found in Mecca, Manhattan, Denmark, and countless corporate logos. The cube is a prison of time and control—a 3D hex symbolizing six sides, six points, six angles: 666. Used by secret societies to encode allegiance to Saturnian control.</p>
+<div class="codex-tags">
+<span class="tag">saturn</span> <span class="tag">symbolism</span> <span class="tag">control</span> <span class="tag">esoteric</span>
+</div>
+</div>
+<!-- Hidden Glyph Triggers -->
+<div class="glyph-trigger" id="lucifer-trigger" style="bottom: 20px; left: 20px;">
+<img alt="Sigil of Lucifer Chamber" class="glyph-icon sigil-link" loading="lazy" onclick="window.location.href='lucifer-chamber.html'" src="assets/img/sigil-lucifer.png"/>
+</div>
+<div class="glyph-trigger" id="baal-trigger" style="bottom: 20px; right: 20px;">
+<img alt="Sigil of Baal Chamber" class="glyph-icon sigil-link" loading="lazy" onclick="window.location.href='baal-chamber.html'" src="assets/img/sigil-baal.png"/>
+</div>
+<div class="glyph-trigger" id="moloch-trigger" style="top: 20px; left: 20px;">
+<img alt="Sigil of Moloch Chamber" class="glyph-icon sigil-link" loading="lazy" onclick="window.location.href='moloch-chamber.html'" src="assets/img/sigil-moloch.png"/>
+</div>
+<div class="glyph-trigger" id="saturn-trigger" style="top: 20px; right: 20px;">
+<img alt="Sigil of Saturn Chamber" class="glyph-icon sigil-link" loading="lazy" onclick="window.location.href='saturn-chamber.html'" src="assets/img/sigil-saturn.png"/>
+</div>
+<div class="glyph-trigger" id="blackcube-trigger" style="bottom: 50%; right: 10px;">
+<img alt="Sigil of Blackcube Chamber" class="glyph-icon sigil-link" loading="lazy" onclick="window.location.href='blackcube-chamber.html'" src="assets/img/sigil-blackcube.png"/>
+</div>
+</main></body></html>

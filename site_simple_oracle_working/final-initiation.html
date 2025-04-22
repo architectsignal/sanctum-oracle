@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Final Initiation</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+  body { background: black; color: #ff00cc; font-family: 'Share Tech Mono', monospace; text-align: center; padding: 2rem; }
+  section { background: rgba(0,0,0,0.85); margin: 1.5rem auto; padding: 2rem; border: 1px solid #ff00cc; border-radius: 8px; max-width: 600px; }
+  input, button { margin-top: 1em; padding: 0.6em; font-size: 1em; background: black; color: #ff00cc; border: 1px solid #ff00cc; border-radius: 4px; }
+  button:hover { background: #ff00cc; color: black; cursor: pointer; }
+</style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://yourdomain.com/final-initiation.html" rel="canonical"/><meta content="Final Initiation" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<section class="riddle-hint" style="margin:2rem auto; max-width:600px; color:#ff00cc; font-style:italic; text-align:center;">
+<p>Seek Saturn’s whisper in the storm of green,<br/>
+       There your final key shall true be seen.</p>
+</section>
+<section style="text-align:center; margin-bottom:2rem;">
+<a href="codex.html" style="color:#ff00cc; text-decoration:none; font-weight:bold;">
+      Go to The Codex
+    </a>
+</section>
+<section id="final-puzzle">
+<h2>Sphinx’s Riddle</h2>
+<p>I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I?</p>
+<input id="riddle-answer" placeholder="Your answer…" style="width:80%;" type="text"/>
+<button id="riddle-submit">Submit</button>
+</section>
+<section id="login-section" style="display:none;">
+<h2>Members Login</h2>
+<input id="final-username" placeholder="Username" style="width:80%;" type="text"/>
+<input id="final-password" placeholder="Password" style="width:80%;" type="password"/>
+<button id="final-login-btn">Log In</button>
+<p id="final-error" style="color:red; display:none;">Invalid credentials.</p>
+</section>
+<script>
+    document.getElementById('riddle-submit').addEventListener('click', () => {
+      const ans = document.getElementById('riddle-answer').value.trim().toLowerCase();
+      if (ans === 'echo') {
+        document.getElementById('final-puzzle').style.display = 'none';
+        document.getElementById('login-section').style.display = 'block';
+      } else {
+        alert('That is not correct.');
+      }
+    });
+    document.getElementById('final-login-btn').addEventListener('click', () => {
+      const user = document.getElementById('final-username').value.trim();
+      const pass = document.getElementById('final-password').value.trim();
+      if (user === 'initiate' && pass === 'awaken') {
+        window.location.href = 'members-area.html';
+      } else {
+        document.getElementById('final-error').style.display = 'block';
+      }
+    });
+  </script>
+</main></body>
+</html>

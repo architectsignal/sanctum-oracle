@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head><title>Divine Cipher</title><meta content="Explore Divine Cipher on MatrixReprogrammed: uncover symbolic decryptions and secret lore." name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "description": "MatrixReprogrammed: Decode symbolic payloads and uncover secret lore through the Original Codex."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "logo": "https://matrixreprogrammed.example.com/assets/img/logo.png",
+    "sameAs": [
+      "https://twitter.com/MatrixReprog",
+      "https://github.com/MatrixReprogrammed"
+    ]
+  }
+]</script><link href="https://yourdomain.com/divine-cipher.html" rel="canonical"/><meta content="Divine Cipher" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body style="background-color:#111; color:gold; font-family:'Courier New', monospace; padding:2rem;"><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<h2>🔐 Divine Cipher Challenge</h2>
+<p>Decrypt the passage: <em>"Et veritas liberabit vos."</em></p>
+<input id="answer" placeholder="Your translation..." style="background:black; color:gold; border:1px solid gold; padding:0.5rem;"/>
+<button onclick="check()">Submit</button>
+<p id="result"></p>
+<script>
+function check() {
+  const input = document.getElementById('answer').value.toLowerCase();
+  if (input.includes('truth') && input.includes('free')) {
+    document.getElementById('result').innerText = '✔️ Correct. The gate opens.';
+    localStorage.setItem('religiousPathComplete', true);
+  } else {
+    document.getElementById('result').innerText = '✖️ Incorrect. The cipher rejects you.';
+  }
+}
+</script>
+<section class="puzzle">
+<h2>Divine Cipher Initiation Puzzle</h2>
+<p>Decode the message: <strong>URYYB JBEYQ</strong></p>
+<input id="divine-input" placeholder="Answer"/>
+<button id="divine-submit">Submit</button>
+<p id="divine-feedback"></p>
+<button disabled="" id="man_init_divine">Mark Complete</button>
+</section>
+<script>
+document.getElementById('divine-submit').onclick = function(){
+  var ans=document.getElementById('divine-input').value.trim().toUpperCase();
+  var fb=document.getElementById('divine-feedback');
+  var mbtn=document.getElementById('man_init_divine');
+  if(ans==='HELLO WORLD'){ fb.textContent='Correct!'; mbtn.disabled=false; } else fb.textContent='Try again.';
+};
+document.getElementById('man_init_divine').onclick = function(){
+  localStorage.setItem('man_init_divine','true');
+    localStorage.setItem('vaultPart1','open');
+    alert('🔓 Vault password part 1 unlocked: "open"'); this.textContent='Completed'; this.disabled=true;
+};
+window.addEventListener('load',function(){
+  if(localStorage.getItem('man_init_divine')==='true'){
+    document.getElementById('man_init_divine').textContent='Completed';
+    document.getElementById('man_init_divine').disabled=true;
+  }
+});
+</script>
+</main></body>
+</html>

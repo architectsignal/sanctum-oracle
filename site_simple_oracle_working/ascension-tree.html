@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Ascension Tree</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    body {
+      background: black url('backgrounds/ascension.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Share Tech Mono', monospace;
+      color: #e0e0e0;
+      text-align: center;
+      padding-top: 10vh;
+    }
+    .branch {
+      display: inline-block;
+      margin: 1.5em;
+      padding: 1.5em 2em;
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+      transition: all 0.3s ease;
+    }
+    .branch:hover {
+      background: #00ffcc;
+      color: black;
+      box-shadow: 0 0 20px #00ffcc;
+    }
+  </style>
+<script>
+    function selectBranch(branch) {
+      localStorage.setItem('ascensionBranch', branch);
+      alert('You have chosen the ' + branch.toUpperCase() + ' path. Proceed to the Oracle.');
+      window.location.href = 'oracle-terminal.html';
+    }
+  </script>
+<meta content="Explore Ascension Tree on MatrixReprogrammed: uncover symbolic decryptions and secret lore." name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "description": "MatrixReprogrammed: Decode symbolic payloads and uncover secret lore through the Original Codex."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MatrixReprogrammed",
+    "url": "https://matrixreprogrammed.example.com",
+    "logo": "https://matrixreprogrammed.example.com/assets/img/logo.png",
+    "sameAs": [
+      "https://twitter.com/MatrixReprog",
+      "https://github.com/MatrixReprogrammed"
+    ]
+  }
+]</script><link href="https://yourdomain.com/ascension-tree.html" rel="canonical"/><meta content="Ascension Tree" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<h1>Ascension Tree</h1>
+<p>Select your path to ascend beyond the veil:</p>
+<div class="branch" onclick="selectBranch('root')">⚫ The Root</div>
+<div class="branch" onclick="selectBranch('eye')">👁 The Eye</div>
+<div class="branch" onclick="selectBranch('flame')">🔥 The Flame</div>
+<div class="branch" onclick="selectBranch('crown')">👑 The Crown</div>
+<section class="puzzle">
+<h2>Ascension Tree Initiation Puzzle</h2>
+<p>Order the stages: Chaos, Order, Balance, Harmony (1-3-2-4)</p>
+<input id="tree-input" placeholder="Answer"/>
+<button id="tree-submit">Submit</button>
+<p id="tree-feedback"></p>
+<button disabled="" id="man_init_tree">Mark Complete</button>
+</section>
+<script>
+document.getElementById('tree-submit').onclick = function(){
+  var ans=document.getElementById('tree-input').value.trim();
+  var fb=document.getElementById('tree-feedback');
+  var mbtn=document.getElementById('man_init_tree');
+  if(ans==='1-3-2-4'){ fb.textContent='Correct!'; mbtn.disabled=false;} else fb.textContent='Try again.';
+};
+document.getElementById('man_init_tree').onclick = function(){
+  localStorage.setItem('man_init_tree','true');
+    localStorage.setItem('vaultPart2','sesame');
+    alert('🔓 Vault password part 2 unlocked: "sesame"'); this.textContent='Completed'; this.disabled=true;
+};
+window.addEventListener('load',function(){
+  if(localStorage.getItem('man_init_tree')==='true'){
+    document.getElementById('man_init_tree').textContent='Completed';
+    document.getElementById('man_init_tree').disabled=true;
+  }
+});
+</script>
+</main></body>
+</html>

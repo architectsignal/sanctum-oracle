@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Forbidden Vault</title>
+<style>
+    body { margin: 0; overflow: auto; background: black; color: #00ff00; font-family: 'Courier New', monospace;  }
+    canvas { position: fixed; top: 0; left: 0; }
+    main { position: relative; z-index: 1; text-align: center; padding-top: 20vh; }
+    #password-prompt { margin-top: 1em; }
+    #vault-password { padding: 0.5em; font-size: 1em; background: black; color: #00ff00; border: 1px solid #00ff00; }
+    #vault-submit { padding: 0.5em 1em; font-size: 1em; background: #00ff00; color: black; border: none; cursor: pointer; margin-left: 0.5em; }
+  </style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://yourdomain.com/vault.html" rel="canonical"/><meta content="Forbidden Vault" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<canvas id="matrixCanvas"></canvas>
+<main>
+<div id="password-prompt">
+<label for="vault-password">Enter Vault Password:</label>
+<input autocomplete="off" id="vault-password" type="password"/>
+<button id="vault-submit">Enter</button>
+</div>
+<div id="vault-content" style="display:none;">
+<h1>FORBIDDEN VAULT</h1>
+<section class="vault-intro">
+<p>Within these hidden chambers lie the most forbidden fragments of lost empires and hear the last whispers of forbidden truth.</p>
+</section>
+<!-- Additional vault content goes here -->
+<section id="vault-other-vaults" style="margin-top:2rem; text-align:left; color:#0f0;">
+<h2 style="color:#0ff;">🚪 Other Vault Chambers</h2>
+<ul style="list-style:disc; margin-left:2rem;">
+<li><a href="pages/black-vault.html" target="_blank">Black Vault</a></li>
+<li><a href="pages/sanctuary-vault.html" target="_blank">Sanctuary Vault</a></li>
+</ul>
+</section>
+<section id="vault-docs" style="margin-top:2rem; text-align:left; color:#0f0; max-height:60vh; overflow-y:auto; padding-right:1rem;">
+<h2 style="color:#0ff;">🔖 Your Initiation Documents</h2>
+<ul style="list-style:disc; margin-left:2rem;">
+<li><a href="ars-goetia.pdf" target="_blank">Ars Goetia (PDF)</a></li>
+<li><a href="assets/pdf/grand-grimoire.pdf" target="_blank">Grand Grimoire (PDF)</a></li>
+<li><a href="assets/pdf/jesuit-archives.pdf" target="_blank">Jesuit Archives (PDF)</a></li>
+<li><a href="assets/pdf/key-of-solomon.pdf" target="_blank">Key Of Solomon (PDF)</a></li>
+<li><a href="assets/pdf/master-key.pdf" target="_blank">Master Key (PDF)</a></li> <li><a href="keyofsolomon.pdf" target="_blank">Keyofsolomon (PDF)</a></li>
+<li><a href="pdfs/ars-notoria.pdf" target="_blank">Ars Notoria (PDF)</a></li>
+<li><a href="pdfs/black-books-elverum.pdf" target="_blank">Black Books Elverum (PDF)</a></li>
+<li><a href="pdfs/book-of-abramelin.pdf" target="_blank">Book Of Abramelin (PDF)</a></li>
+<li><a href="pdfs/book-of-enoch.pdf" target="_blank">Book Of Enoch (PDF)</a></li>
+<li><a href="pdfs/codex-gigas.pdf" target="_blank">Codex Gigas (PDF)</a></li>
+<li><a href="pdfs/corpus-hermeticum.pdf" target="_blank">Corpus Hermeticum (PDF)</a></li>
+<li><a href="pdfs/necronomicon.pdf" target="_blank">Necronomicon (PDF)</a></li>
+<li><a href="pdfs/picatrix.pdf" target="_blank">Picatrix (PDF)</a></li>
+<li><a href="pdfs/sworn-book-of-honorius.pdf" target="_blank">Sworn Book Of Honorius (PDF)</a></li>
+<li><a href="pdfs/voynich-manuscript.pdf" target="_blank">Voynich Manuscript (PDF)</a></li>
+</ul>
+</section>
+<section style="margin-top:2rem; text-align:center;">
+<a href="ritual-gate.html" style="color:#0ff; text-decoration:none; font-weight:bold;">
+      ← Back to Ritual Gate
+    </a>
+</section>
+</div>
+</main>
+<footer>
+<p>© Matrix Reprogrammed - All Rights Reserved</p>
+</footer>
+<script>
+    /* Matrix Rain Animation */
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+    function setupCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    setupCanvas();
+    window.addEventListener('resize', setupCanvas);
+    const letters = 'アァイィウヴエカキクケコサシスセソタチツナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('');
+    const fontSize = 16;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.07)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 33);
+  </script>
+<script>
+    // Password prompt logic, runs after elements exist
+    (function() {
+      const promptEl = document.getElementById('password-prompt');
+      const contentEl = document.getElementById('vault-content');
+      const input = document.getElementById('vault-password');
+      const btn = document.getElementById('vault-submit');
+      btn.addEventListener('click', () => {
+        const p1 = localStorage.getItem('vaultPart1') || '';
+        const p2 = localStorage.getItem('vaultPart2') || '';
+        const vaultPassword = p1 + p2;
+        console.info('DEBUG vaultPassword=', vaultPassword);
+        if (input.value === vaultPassword && vaultPassword) {
+          promptEl.style.display = 'none';
+          contentEl.style.display = 'block';
+          localStorage.setItem('vaultUnlocked', 'true');
+          localStorage.setItem('finalPart1', 'matrix');
+          alert('✅ Vault opened! Final ritual part 1 unlocked: “matrix”');
+        } else {
+          alert('Incorrect password');
+          input.value = '';
+        }
+      });
+    })();
+  </script>
+</main></body>
+</html>

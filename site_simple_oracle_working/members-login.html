@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Members Area - Login</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    body {
+      background: black;
+      color: #66ff66;
+      font-family: 'Share Tech Mono', monospace;
+      text-align: center;
+      padding-top: 10vh;
+    }
+    .container {
+      background: rgba(0,0,0,0.85);
+      display: inline-block;
+      padding: 2em;
+      border: 2px solid #66ff66;
+      box-shadow: 0 0 20px #66ff66;
+    }
+    input {
+      display: block;
+      margin: 1em auto;
+      padding: 0.5em;
+      font-size: 1em;
+      width: 200px;
+      background: black;
+      color: #66ff66;
+      border: 1px solid #66ff66;
+    }
+    button {
+      padding: 0.5em 1em;
+      background: #66ff66;
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .error {
+      color: #ff4444;
+      display: none;
+      margin-top: 1em;
+    }
+  </style>
+<meta content="[ADD PAGE DESCRIPTION]" name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://yourdomain.com/members-login.html" rel="canonical"/><meta content="Members Area - Login" property="og:title"/><meta content="[ADD PAGE DESCRIPTION]" property="og:description"/><meta content="https://yourdomain.com/og-image.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://fonts.gstatic.com" rel="preconnect"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><main id="main-content">
+<div class="container">
+<h1>🔑 Members Login</h1>
+<p>Enter your credentials:</p>
+<input id="username" placeholder="Username" type="text"/>
+<input id="password" placeholder="Password" type="password"/>
+<button id="loginBtn">LOGIN</button>
+<p class="error" id="errorMsg">Invalid username or password.</p>
+</div>
+<script>
+    document.getElementById('loginBtn').addEventListener('click', function() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      if (user === 'initiate' && pass === 'awaken') {
+        window.location.href = 'members-area.html';
+      } else {
+        document.getElementById('errorMsg').style.display = 'block';
+      }
+    });
+  </script>
+</main></body>
+</html>
